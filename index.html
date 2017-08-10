@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Urban Noise</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -27,6 +27,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="echarts.min.js"></script>
 
 </head>
 
@@ -38,22 +39,22 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>Start Bootstrap</a>
+                <a href="#top" onclick=$( "#menu-close").click();>Start Bootstrap</a>
             </li>
             <li>
-                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+                <a href="#top" onclick=$( "#menu-close").click();>Home</a>
             </li>
             <li>
-                <a href="#about" onclick=$("#menu-close").click();>About</a>
+                <a href="#about" onclick=$( "#menu-close").click();>About</a>
             </li>
             <li>
-                <a href="#services" onclick=$("#menu-close").click();>Services</a>
+                <a href="#services" onclick=$( "#menu-close").click();>Services</a>
             </li>
             <li>
-                <a href="#portfolio" onclick=$("#menu-close").click();>Portfolio</a>
+                <a href="#portfolio" onclick=$( "#menu-close").click();>Portfolio</a>
             </li>
             <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
+                <a href="#contact" onclick=$( "#menu-close").click();>Contact</a>
             </li>
         </ul>
     </nav>
@@ -61,7 +62,7 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>Start Bootstrap</h1>
+            <h1>More Than a Nuisance</h1>
             <h3>Free Bootstrap Themes &amp; Templates</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
@@ -167,42 +168,182 @@
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Our Work</h2>
                     <hr class="small">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
                 </div>
-                <!-- /.col-lg-10 -->
             </div>
-            <!-- /.row -->
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="btn-group-vertical" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" onClick="myFunction1()">1</button>
+                        <button type="button" class="btn btn-default" onClick="myFunction2()">2</button>
+                        <button type="button" class="btn btn-default">3</button>
+                    </div>
+                </div>
+                <div class="col-md-10" style="background-color:rgba(106,131,114,0.2)">
+                    <div id="chart2" style="width: 950px;height:600px;">
+                        <script src="echarts.min.js"></script>
+                        <script>
+                            var myChart = echarts.init(document.getElementById('chart2'));
+                            var colors = ['#5793f3', '#d14a61', '#675bba'];
+
+                            option = {
+                                color: colors,
+
+                                tooltip: {
+                                    trigger: 'axis',
+                                    axisPointer: {
+                                        //  type: 'cross'
+                                    },
+                                },
+                                legend: {
+                                    data: ['Noise Index', 'Noise Control Investment (%)'],
+                                    bottom: "80%",
+                                },
+                                xAxis: [{
+                                    type: 'category',
+                                    // axisTick: {
+                                    //    alignWithLabel: true
+                                    //},
+                                    data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                                }],
+                                yAxis: [{
+                                    type: 'value',
+                                    name: 'Noise Index',
+                                    min: 50,
+                                    max: 55,
+                                    position: 'right',
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: colors[1]
+                                        }
+                                    },
+                                    axisLabel: {
+                                        formatter: '{value} dB'
+                                    }
+                                }, {}, {
+                                    type: 'value',
+                                    name: 'Noise Control Invest %',
+                                    min: 0,
+                                    max: 1,
+                                    position: 'left',
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: colors[0]
+                                        }
+                                    },
+                                    axisLabel: {
+                                        formatter: '{value} %',
+                                    }
+                                }],
+                                series: [{
+                                    name: 'Noise Control Investment (%)',
+                                    type: 'line',
+                                    yAxisIndex: 2,
+                                    data: [0.34, 0.49, 0.17, 0.03, 0.06, 0.15, 0.12, 0.08, 0.04, NaN]
+                                }, {
+                                    name: 'Noise Index',
+                                    type: 'line',
+                                    data: [53.9, 54.1, 53.6, 54.1, 54.2, 53.7, 54, 53.8, 53.6, 53.3]
+                                }],
+                                title: {
+                                    left: 'center',
+                                    text: 'Beijing Environemttal Noise Index vs Government Investment on Noise Control',
+                                    textStyle: {
+                                        fontSize: 18,
+                                    },
+                                    subtext: "Source: National Bureau of Statistics of China",
+                                    sublink: "http://data.stats.gov.cn/easyquery.htm?cn=E0103&zb=A0C0N&reg=110000&sj=2015",
+                                    subtextStyle: {
+                                        fontSize: 8,
+                                    }
+                                },
+                            };
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+                    <div id="chart1" style="width: 950px;height:600px;">
+                        <script src="echarts.min.js"></script>
+                        <script>
+                            var myChart = echarts.init(document.getElementById('chart1'));
+                            option = {
+                                title: {
+                                    left: 'center',
+                                    text: 'Five Cities that Changed Dramatically on Environmental Noise',
+                                    subtext: 'Source:Source: National Bureau of Statistics of China',
+                                    sublink: "http://data.stats.gov.cn/easyquery.htm?cn=E0103&zb=A0C0N&reg=110000&sj=2015"
+                                },
+                                tooltip: {
+                                    trigger: 'axis',
+                                },
+                                legend: {
+                                    data: ['Lhasa', 'Ningbo', 'Qingdao', 'Hangzhou', 'Shijiazhuang'],
+                                    bottom: '80%',
+                                },
+                                xAxis: {
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+                                },
+                                yAxis: {
+                                    type: 'value',
+                                    min: 45,
+                                    max: 65,
+                                    axisLabel: {
+                                        formatter: '{value} dB'
+                                    },
+                                    name: 'Noise Index'
+                                },
+                                series: [{
+                                    name: 'Hangzhou',
+                                    type: 'line',
+                                    data: [55.9, 60.1, 60, 57.2, 57.2, 57, 56.8, 56.3, 56.4, 56.2]
+                                }, {
+                                    name: 'Ningbo',
+                                    type: 'line',
+                                    data: [NaN, 53.8, 53.4, 53.2, 53.7, 54.5, 55, 58.7, 58.2, 57]
+                                }, {
+                                    name: 'Lhasa',
+                                    type: 'line',
+                                    data: [53.8, 46.5, 46.4, 45.9, 46.8, 46.8, 47.6, 47.7, 48.2, 49]
+                                }, {
+                                    name: 'Shijiazhuang',
+                                    type: 'line',
+                                    data: [53.8, 50.4, 50.2, 50.4, 50.3, 54.1, 52.2, 52.2, 52.4, 50.8]
+                                }, {
+                                    name: 'Qingdao',
+                                    type: 'line',
+                                    data: [NaN, 53.6, 53.4, 53.5, 53.6, 53.7, 53.7, 57.6, 58.2, 56.7]
+                                }]
+                            };
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <a href="#">
+                            <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row (nested) -->
+            <a href="#" class="btn btn-dark">View More Items</a>
+        </div>
+        <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
@@ -236,13 +377,6 @@
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h4><strong>Start Bootstrap</strong>
                     </h4>
-                    <p>3481 Melrose Place
-                        <br>Beverly Hills, CA 90210</p>
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">name@example.com</a>
-                        </li>
-                    </ul>
                     <br>
                     <ul class="list-inline">
                         <li>
@@ -271,76 +405,98 @@
 
     <!-- Custom Theme JavaScript -->
     <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+        // Closes the sidebar menu
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Opens the sidebar menu
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Scrolls to the selected menu item on the page
+        $(function() {
+            $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+        //#to-top button appears after scrolling
+        var fixed = false;
+        $(document).scroll(function() {
+            if ($(this).scrollTop() > 250) {
+                if (!fixed) {
+                    fixed = true;
+                    // $('#to-top').css({position:'fixed', display:'block'});
+                    $('#to-top').show("slow", function() {
+                        $('#to-top').css({
+                            position: 'fixed',
+                            display: 'block'
+                        });
+                    });
+                }
+            } else {
+                if (fixed) {
+                    fixed = false;
+                    $('#to-top').hide("slow", function() {
+                        $('#to-top').css({
+                            display: 'none'
+                        });
+                    });
                 }
             }
         });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
-        }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
+        // Disable Google Maps scrolling
+        // See http://stackoverflow.com/a/25904582/1607849
+        // Disable scroll zooming and bind back the click event
+        var onMapMouseleaveHandler = function(event) {
             var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
+            that.on('click', onMapClickHandler);
+            that.off('mouseleave', onMapMouseleaveHandler);
+            that.find('iframe').css("pointer-events", "none");
         }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
+        var onMapClickHandler = function(event) {
+                var that = $(this);
+                // Disable the click handler until the user leaves the map area
+                that.off('click', onMapClickHandler);
+                // Enable scrolling zoom
+                that.find('iframe').css("pointer-events", "auto");
+                // Handle the mouse leave event
+                that.on('mouseleave', onMapMouseleaveHandler);
+            }
+            // Enable map zooming with mouse scroll when the user clicks the map
+        $('.map').on('click', onMapClickHandler);
+    </script>
+    <script>
+        var chart2 = document.getElementById('chart2')
+        var chart1 = document.getElementById('chart1')
+        chart2.style.display = 'none'
+        chart1.style.display = 'block'
+
+        function myFunction1() {
+            var x = document.getElementById('chart1');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                chart2.style.display = 'none'
+            }
+        }
+
+        function myFunction2() {
+            var x = document.getElementById('chart2');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                chart1.style.display = 'none';
+            }
+        }
     </script>
 
 </body>
