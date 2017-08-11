@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body style="background-color:rgba(130,130,130,0.2)">
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -53,9 +53,6 @@
             <li>
                 <a href="#portfolio" onclick=$( "#menu-close").click();>Portfolio</a>
             </li>
-            <li>
-                <a href="#contact" onclick=$( "#menu-close").click();>Contact</a>
-            </li>
         </ul>
     </nav>
 
@@ -76,6 +73,1318 @@
                 <div class="col-lg-12 text-center">
                     <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
                     <p class="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div id="map" style="width: 950px;height:600px;">
+                        <script src="echarts.js"></script>
+                        <script src="china.js"></script>
+                        <script>
+                            var myChart = echarts.init(document.getElementById('map'));
+                            var geoCoordMap = {
+                                'Ningbo': [29.86, 121.54],
+                                'Qingdao': [120.33, 36.07],
+                                'Lhasa': [91.11, 29.97],
+                                'Shanghai': [121.48, 31.22],
+                                'Xiamen': [118.1, 24.46],
+                                'Fuzhou': [119.3, 26.08],
+                                'Nanning': [108.33, 22.84],
+                                'Guangzhou': [113.23, 23.16],
+                                'Taiyuan': [112.53, 37.87],
+                                'Kunming': [102.73, 25.04],
+                                'Shenzhen': [114.07, 22.62],
+                                'Haikou': [110.35, 20.02],
+                                'Dalian': [121.62, 38.92],
+                                'Shenyang': [123.38, 41.8],
+                                'Changchun': [125.35, 43.88],
+                                'Yinchuan': [106.27, 38.47],
+                                'Nanchang': [115.89, 28.68],
+                                'Xining': [101.74, 36.56],
+                                'Hohhot': [111.65, 40.82],
+                                'Chengdu': [104.06, 30.67],
+                                'XiAn': [108.95, 34.27],
+                                'Chongqing': [106.54, 29.59],
+                                'Nanjing': [118.78, 32.04],
+                                'Guiyang': [106.71, 26.57],
+                                'Beijing': [116.46, 39.92],
+                                'Urumqi': [87.68, 43.77],
+                                'Hangzhou': [120.19, 30.26],
+                                'Jinan': [117, 36.65],
+                                'Lanzhou': [103.73, 36.03],
+                                'Tianjin': [117.2, 39.13],
+                                'Zhengzhou': [113.65, 34.76],
+                                'Harbin': [126.63, 45.75],
+                                'Shijiazhuang': [114.48, 38.03],
+                                'Changsha': [113, 28.21],
+                                'Hefei': [117.27, 31.86],
+                                'Wuhan': [114.31, 30.52],
+                            };
+
+                            var convertData = function(data) {
+                                var res = [];
+                                for (var i = 0; i < data.length; i++) {
+                                    var geoCoord = geoCoordMap[data[i].name];
+                                    if (geoCoord) {
+                                        res.push({
+                                            name: data[i].name,
+                                            value: geoCoord.concat(data[i].value)
+                                        });
+                                    }
+                                }
+                                return res;
+                            };
+
+                            option = {
+                                baseOption: {
+                                    timeline: {
+                                        data: ['2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007', '2006'],
+                                        axisType: 'category',
+                                        rewind: true,
+                                        inverse: true,
+                                        tooltip: {
+                                            show: false
+                                        },
+                                    },
+                                    title: {
+                                        text: 'Noise Index for Major Cities in China',
+                                        textStyle: {
+                                            color: '#2f4554'
+                                        },
+                                        subtextStyle: {
+                                            fontSize: 30,
+                                            color: '#2f4554'
+                                        },
+                                        sublink: 'http://www.pm25.in',
+                                        x: 'center',
+                                    },
+                                    tooltip: {
+                                        trigger: 'item',
+                                        formatter: function(params) {
+                                            return params.name + ' : ' + params.value[2];
+                                        }
+                                    },
+                                    visualMap: {
+                                        min: 40,
+                                        max: 65,
+                                        splitNumber: 5,
+                                        //:series.data,
+                                        textStyle: {
+                                            color: '#2f4554'
+                                        },
+                                        inRange: {
+                                            color: ['#50a3ba', '#eac736', '#d94e5d']
+                                        },
+                                    },
+                                    geo: {
+                                        map: 'china',
+                                        label: {
+                                            emphasis: {
+                                                show: false
+                                            }
+                                        },
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#828282',
+                                                borderColor: '#111'
+                                            },
+                                            emphasis: {
+                                                areaColor: '#BDC0BA'
+                                            }
+                                        }
+                                    },
+                                },
+
+                                options: [{
+                                    title: {
+                                        subtext: '2015'
+                                    },
+                                    series: [{
+                                        name: '2015',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 50.8
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 52.9
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 58.3
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 56.2
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 56.2
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 57
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.6
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 56.7
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 55
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 58.9
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 53.5
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 49
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.2
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 53.7
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2014'
+                                    },
+                                    series: [{
+                                        name: '2014',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 52.4
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 52.9
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 59.3
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 56.4
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 58.2
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 57.8
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56.5
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 53.9
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 58.2
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55.1
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 53.5
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 59
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 48.2
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.5
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 53.2
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2013'
+                                    },
+                                    series: [{
+                                        name: '2013',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 52.2
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 56.3
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 58.7
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 57.4
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 52.6
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 57.6
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.1
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.6
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.4
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 47.7
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Xining',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 54.8
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2012'
+                                    },
+                                    series: [{
+                                        name: '2012',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 54
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 52.2
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 55.1
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 55
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 53.5
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 52.3
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 52.7
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 53.9
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 53
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 47.6
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.3
+                                        }, {
+                                            name: 'Xining',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 54.4
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2011'
+                                    },
+                                    series: [{
+                                        name: '2011',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 55
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 57
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 55.7
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.7
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 53.5
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.7
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 56
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 53
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 46.8
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.3
+                                        }, {
+                                            name: 'Xining',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 52.6
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2010'
+                                    },
+                                    series: [{
+                                        name: '2010',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 50.3
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 56
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 57.2
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 55.4
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.5
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.4
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 52.9
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 46.8
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.2
+                                        }, {
+                                            name: 'Xining',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 54
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 54.5
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2009'
+                                    },
+                                    series: [{
+                                        name: '2009',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 50.4
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.7
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 57.2
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.7
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 56.9
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.5
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 52.7
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 45.9
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.1
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.1
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.4
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 55
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 55
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2008'
+                                    },
+                                    series: [{
+                                        name: '2008',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 50.2
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 53.3
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 57
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 60
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.6
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 56.6
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 53
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 55.7
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.5
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.4
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.2
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 52.1
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 46.4
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.7
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.6
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 55
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2007'
+                                    },
+                                    series: [{
+                                        name: '2007',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 50.4
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 54.7
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 56.2
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 54.1
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 60.1
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.4
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 56.1
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 53.2
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 53.6
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 54.6
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 56.5
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 55
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.5
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 51.9
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 46.5
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.5
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.9
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.8
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 54.7
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: '2006'
+                                    },
+                                    series: [{
+                                        name: '2006',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 53.9
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 54.8
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 53.9
+                                        }, {
+                                            name: 'Dalian',
+                                            value: 0
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 56.3
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 56
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 56.6
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 53.8
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 55.9
+                                        }, {
+                                            name: 'Ningbo',
+                                            value: 0
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 53.4
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 56.2
+                                        }, {
+                                            name: 'Xiamen',
+                                            value: 0
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 53.9
+                                        }, {
+                                            name: 'Qingdao',
+                                            value: 0
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 55.3
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Shenzhen',
+                                            value: 0
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 55.2
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 54.4
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 54.3
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 55.6
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 54.9
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 53.8
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 55.8
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 57.9
+                                        }, {
+                                            name: 'Xining',
+                                            value: 52.2
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 53.1
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 55.1
+                                        }])
+                                    }]
+                                }]
+                            }
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+
+                </div>
+                <div class="col-md-1">
                 </div>
             </div>
             <!-- /.row -->
@@ -178,12 +1487,12 @@
                         <button type="button" class="btn btn-default">3</button>
                     </div>
                 </div>
-                <div class="col-md-10" style="background-color:rgba(106,131,114,0.2)">
+                <div class="col-md-10">
                     <div id="chart2" style="width: 950px;height:600px;">
                         <script src="echarts.min.js"></script>
                         <script>
                             var myChart = echarts.init(document.getElementById('chart2'));
-                            var colors = ['#5793f3', '#d14a61', '#675bba'];
+                            var colors = ['#2f4554', '#d14a61', '#675bba'];
 
                             option = {
                                 color: colors,
@@ -208,7 +1517,7 @@
                                 yAxis: [{
                                     type: 'value',
                                     name: 'Noise Index',
-                                    min: 50,
+                                    min: 53,
                                     max: 55,
                                     position: 'right',
                                     axisLine: {
@@ -223,7 +1532,7 @@
                                     type: 'value',
                                     name: 'Noise Control Invest %',
                                     min: 0,
-                                    max: 1,
+                                    max: 0.6,
                                     position: 'left',
                                     axisLine: {
                                         lineStyle: {
@@ -238,11 +1547,13 @@
                                     name: 'Noise Control Investment (%)',
                                     type: 'line',
                                     yAxisIndex: 2,
-                                    data: [0.34, 0.49, 0.17, 0.03, 0.06, 0.15, 0.12, 0.08, 0.04, NaN]
+                                    data: [0.34, 0.49, 0.17, 0.03, 0.06, 0.15, 0.12, 0.08, 0.04, NaN],
+                                    animation: true,
                                 }, {
                                     name: 'Noise Index',
                                     type: 'line',
-                                    data: [53.9, 54.1, 53.6, 54.1, 54.2, 53.7, 54, 53.8, 53.6, 53.3]
+                                    data: [53.9, 54.1, 53.6, 54.1, 54.2, 53.7, 54, 53.8, 53.6, 53.3],
+                                    animation: true,
                                 }],
                                 title: {
                                     left: 'center',
@@ -268,14 +1579,14 @@
                                 title: {
                                     left: 'center',
                                     text: 'Five Cities that Changed Dramatically on Environmental Noise',
-                                    subtext: 'Source:Source: National Bureau of Statistics of China',
+                                    subtext: 'Source: National Bureau of Statistics of China',
                                     sublink: "http://data.stats.gov.cn/easyquery.htm?cn=E0103&zb=A0C0N&reg=110000&sj=2015"
                                 },
                                 tooltip: {
                                     trigger: 'axis',
                                 },
                                 legend: {
-                                    data: ['Lhasa', 'Ningbo', 'Qingdao', 'Hangzhou', 'Shijiazhuang'],
+                                    data: ['Lhasa', 'Ningbo', 'Qingdao', 'Hangzhou', 'Shijiazhuang', 'National Average'],
                                     bottom: '80%',
                                 },
                                 xAxis: {
@@ -293,6 +1604,23 @@
                                     name: 'Noise Index'
                                 },
                                 series: [{
+                                    name: 'National Average',
+                                    type: 'line',
+                                    data: [54.8, 54.6, 54.5, 54.5, 54.6, 54.4, 54.4, 54.5, 54.8, 54.7],
+                                    symbol: 'rect',
+                                    itemStyle: {
+                                        normal: {
+                                            lineStyle: {
+                                                type: 'dashed',
+                                                width: 2
+                                            }
+                                        }
+                                    },
+                                    zlevel: 2,
+                                    animation: true,
+                                    animationDelay: 1000,
+                                    animationDuration: 2000
+                                }, {
                                     name: 'Hangzhou',
                                     type: 'line',
                                     data: [55.9, 60.1, 60, 57.2, 57.2, 57, 56.8, 56.3, 56.4, 56.2]
@@ -303,7 +1631,14 @@
                                 }, {
                                     name: 'Lhasa',
                                     type: 'line',
-                                    data: [53.8, 46.5, 46.4, 45.9, 46.8, 46.8, 47.6, 47.7, 48.2, 49]
+                                    data: [53.8, 46.5, 46.4, 45.9, 46.8, 46.8, 47.6, 47.7, 48.2, 49],
+                                    itemStyle: {
+                                        normal: {
+                                            lineStyle: {
+                                                color: '#689399',
+                                            }
+                                        }
+                                    }
                                 }, {
                                     name: 'Shijiazhuang',
                                     type: 'line',
@@ -361,23 +1696,13 @@
         </div>
     </aside>
 
-    <!-- Map -->
-    <section id="contact" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>Start Bootstrap</strong>
+                    <h4><strong>The team</strong>
                     </h4>
-                    <br>
                     <ul class="list-inline">
                         <li>
                             <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
@@ -389,7 +1714,6 @@
                             <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
                         </li>
                     </ul>
-                    <hr class="small">
                     <p class="text-muted">Copyright &copy; Your Website 2014</p>
                 </div>
             </div>
