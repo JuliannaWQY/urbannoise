@@ -169,11 +169,15 @@
                                     visualMap: {
                                         min: 40,
                                         max: 65,
-                                        splitNumber: 5,
+                                        splitNumber: 4,
+                                        seriesIndex: 0,
                                         //:series.data,
                                         textStyle: {
                                             color: '#2f4554'
                                         },
+                                        showLabel: true,
+                                        text: ['Noise Pollution', 'Good Environment'],
+                                        hoverlink: true,
                                         inRange: {
                                             color: ['#50a3ba', '#eac736', '#d94e5d']
                                         },
@@ -205,6 +209,8 @@
                                         name: '2015',
                                         type: 'scatter',
                                         coordinateSystem: 'geo',
+                                        symbol: 'roundRect',
+                                        symbolSize: 20,
                                         data: convertData([{
                                             name: 'Beijing',
                                             value: 53.3
@@ -1520,6 +1526,9 @@
                                     min: 53,
                                     max: 55,
                                     position: 'right',
+                                    animation: {
+                                        show: true,
+                                    },
                                     axisLine: {
                                         lineStyle: {
                                             color: colors[1]
