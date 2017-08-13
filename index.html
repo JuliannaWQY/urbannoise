@@ -27,7 +27,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="echarts.min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--<script src="lodash.js"></script>
+    <script src="swiper.jquery.min.js"></script>-->
+
 
 </head>
 
@@ -79,9 +83,21 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
+                    <img src="img/info1.png" style="width:400px;height:600px">
+
+                </div>
+                <div class="col-md-1">
+                </div>
+
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
                     <div id="map" style="width: 950px;height:600px;">
-                        <script src="echarts.js"></script>
-                        <script src="china.js"></script>
+                        <script src="js/echarts.js"></script>
+                        <script src="js/china.js"></script>
                         <script>
                             var myChart = echarts.init(document.getElementById('map'));
                             var geoCoordMap = {
@@ -145,7 +161,7 @@
                                         tooltip: {
                                             show: false
                                         },
-                                        symbol: 'image://object.png',
+                                        symbol: 'image://img/object.png',
                                         symbolSize: 32,
                                         playInterval: 4000
                                     },
@@ -521,173 +537,6 @@
                     </div>
                 </div>
                 <div class="col-md-10">
-                    <div id="chart2" style="width: 950px;height:600px;">
-                        <script src="echarts.min.js"></script>
-                        <script>
-                            var myChart = echarts.init(document.getElementById('chart2'));
-                            var colors = ['#2f4554', '#d14a61', '#675bba'];
-
-                            option = {
-                                color: colors,
-
-                                tooltip: {
-                                    trigger: 'axis',
-                                    axisPointer: {
-                                        //  type: 'cross'
-                                    },
-                                },
-                                legend: {
-                                    data: ['Noise Index', 'Noise Control Investment (%)'],
-                                    bottom: "80%",
-                                },
-                                xAxis: [{
-                                    type: 'category',
-                                    // axisTick: {
-                                    //    alignWithLabel: true
-                                    //},
-                                    data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
-                                }],
-                                yAxis: [{
-                                    type: 'value',
-                                    name: 'Noise Index',
-                                    min: 53,
-                                    max: 55,
-                                    position: 'right',
-                                    animation: {
-                                        show: true,
-                                    },
-                                    axisLine: {
-                                        lineStyle: {
-                                            color: colors[1]
-                                        }
-                                    },
-                                    axisLabel: {
-                                        formatter: '{value} dB'
-                                    }
-                                }, {}, {
-                                    type: 'value',
-                                    name: 'Noise Control Invest %',
-                                    min: 0,
-                                    max: 0.6,
-                                    position: 'left',
-                                    axisLine: {
-                                        lineStyle: {
-                                            color: colors[0]
-                                        }
-                                    },
-                                    axisLabel: {
-                                        formatter: '{value} %',
-                                    }
-                                }],
-                                series: [{
-                                    name: 'Noise Control Investment (%)',
-                                    type: 'line',
-                                    yAxisIndex: 2,
-                                    data: [0.34, 0.49, 0.17, 0.03, 0.06, 0.15, 0.12, 0.08, 0.04, NaN],
-                                    animation: true,
-                                }, {
-                                    name: 'Noise Index',
-                                    type: 'line',
-                                    data: [53.9, 54.1, 53.6, 54.1, 54.2, 53.7, 54, 53.8, 53.6, 53.3],
-                                    animation: true,
-                                }],
-                                title: {
-                                    left: 'center',
-                                    text: 'Beijing Environemttal Noise Index vs Government Investment on Noise Control',
-                                    textStyle: {
-                                        fontSize: 18,
-                                    },
-                                    subtext: "Source: National Bureau of Statistics of China",
-                                    sublink: "http://data.stats.gov.cn/easyquery.htm?cn=E0103&zb=A0C0N&reg=110000&sj=2015",
-                                    subtextStyle: {
-                                        fontSize: 8,
-                                    }
-                                },
-                            };
-                            myChart.setOption(option)
-                        </script>
-                    </div>
-                    <div id="chart1" style="width: 950px;height:600px;">
-                        <script src="echarts.min.js"></script>
-                        <script>
-                            var myChart = echarts.init(document.getElementById('chart1'));
-                            option = {
-                                title: {
-                                    left: 'center',
-                                    text: 'Five Cities that Changed Dramatically on Environmental Noise',
-                                    subtext: 'Source: National Bureau of Statistics of China',
-                                    sublink: "http://data.stats.gov.cn/easyquery.htm?cn=E0103&zb=A0C0N&reg=110000&sj=2015"
-                                },
-                                tooltip: {
-                                    trigger: 'axis',
-                                },
-                                legend: {
-                                    data: ['Lhasa', 'Ningbo', 'Qingdao', 'Hangzhou', 'Shijiazhuang', 'National Average'],
-                                    bottom: '80%',
-                                },
-                                xAxis: {
-                                    type: 'category',
-                                    boundaryGap: false,
-                                    data: ['2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
-                                },
-                                yAxis: {
-                                    type: 'value',
-                                    min: 45,
-                                    max: 65,
-                                    axisLabel: {
-                                        formatter: '{value} dB'
-                                    },
-                                    name: 'Noise Index'
-                                },
-                                series: [{
-                                    name: 'National Average',
-                                    type: 'line',
-                                    data: [54.8, 54.6, 54.5, 54.5, 54.6, 54.4, 54.4, 54.5, 54.8, 54.7],
-                                    symbol: 'rect',
-                                    itemStyle: {
-                                        normal: {
-                                            lineStyle: {
-                                                type: 'dashed',
-                                                width: 2
-                                            }
-                                        }
-                                    },
-                                    zlevel: 2,
-                                    animation: true,
-                                    animationDelay: 1000,
-                                    animationDuration: 2000
-                                }, {
-                                    name: 'Hangzhou',
-                                    type: 'line',
-                                    data: [55.9, 60.1, 60, 57.2, 57.2, 57, 56.8, 56.3, 56.4, 56.2]
-                                }, {
-                                    name: 'Ningbo',
-                                    type: 'line',
-                                    data: [NaN, 53.8, 53.4, 53.2, 53.7, 54.5, 55, 58.7, 58.2, 57]
-                                }, {
-                                    name: 'Lhasa',
-                                    type: 'line',
-                                    data: [53.8, 46.5, 46.4, 45.9, 46.8, 46.8, 47.6, 47.7, 48.2, 49],
-                                    itemStyle: {
-                                        normal: {
-                                            lineStyle: {
-                                                color: '#689399',
-                                            }
-                                        }
-                                    }
-                                }, {
-                                    name: 'Shijiazhuang',
-                                    type: 'line',
-                                    data: [53.8, 50.4, 50.2, 50.4, 50.3, 54.1, 52.2, 52.2, 52.4, 50.8]
-                                }, {
-                                    name: 'Qingdao',
-                                    type: 'line',
-                                    data: [NaN, 53.6, 53.4, 53.5, 53.6, 53.7, 53.7, 57.6, 58.2, 56.7]
-                                }]
-                            };
-                            myChart.setOption(option)
-                        </script>
-                    </div>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -696,66 +545,12 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" id="people-move">
-                                <div class="info">
-                                    <header>人口的分布</header>
-                                    <p>年末常住人口地理分布（万人）</p>
-                                    <p class="info-year"><span class="year"></span></p>
-                                </div>
-                                <div class="tip">&lt; 向左滑动</div>
-                                <div class="paly-state">
-                                    <img src="img/pause.png" alt="暂停" class="pause">
-                                    <img src="img/play.png" alt="播放" class="play">
-                                    <img src="img/replay.png" alt="重播" class="replay">
-                                </div>
-                                <div class="legend">
-                                    <p>
-                                        <span class="exp"> <i class="rise"></i>当年人口增长</span>
-                                        <br>
-                                        <span class="exp"><i class="drop"></i>当年人口减少</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide" id="people-together">
-                                <div class="info">
-                                    <header>人口的分布</header>
-                                    <p>年末常住人口总量排序（万人）</p>
-                                    <p class="info-year"><span class="year"></span></p>
-                                </div>
-                                <div class="paly-state">
-                                    <img src="img/pause.png" alt="暂停" class="pause">
-                                    <img src="img/play.png" alt="播放" class="play">
-                                    <img src="img/replay.png" alt="重播" class="replay">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 如果需要滚动条 -->
-                        <div class="swiper-scrollbar"></div>
-                    </div>
+                    <img src="img/info2.png" style="width:400px;height:600px">
+
                 </div>
                 <div class="col-md-1">
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="portfolio-item">
-                            <a href="#">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">View More Items</a>
+
             </div>
             <!-- /.col-lg-10 -->
         </div>
