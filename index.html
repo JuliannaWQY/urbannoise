@@ -457,9 +457,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="beijingMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Beijing</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -475,9 +475,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="dandongMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Dandong</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -493,9 +493,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="dongguanMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Dongguan</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -513,9 +513,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="hangzhouMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Hangzhou</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -531,9 +531,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="hongkongMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Hong Kong</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -549,9 +549,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="quanzhouMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Quanzhou</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -570,9 +570,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="shanghaiMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Shanghai</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -593,7 +593,7 @@
                             <div class="col-sm-4">
                                 <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Shenzhen</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -609,9 +609,9 @@
                     <div class="service-item">
                         <div class="row">
                             <div class="col-sm-4">
-                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
                                 <h4>
-                                    <strong>ShenZhen</strong>
+                                    <strong>Tongcheng</strong>
                                 </h4>
                             </div>
                             <div class="col-sm-8">
@@ -816,10 +816,11 @@
         }
     </script>
 
+    <!-- json map of Cities -->
     <script>
-        $.getJSON('beijing.json', function(data) {
+        $.getJSON('echartsmaps/beijing.json', function(data) {
             echarts.registerMap('beijing', data);
-            var chart = echarts.init(document.getElementById('shenzhenMap'));
+            var chart = echarts.init(document.getElementById('beijingMap'));
             chart.setOption({
                 series: [{
                     type: 'map',
@@ -827,7 +828,90 @@
                 }]
             });
         });
+
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
+        $.getJSON('.json', function(data) {
+            echarts.registerMap('', data);
+            var chart = echarts.init(document.getElementById('Map'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: ''
+                }]
+            });
+        });
     </script>
+    <!-- json map of Cities -->
 
 </body>
 
