@@ -31,11 +31,29 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!--<script src="lodash.js"></script>
     <script src="swiper.jquery.min.js"></script>-->
-
+    <link rel="stylesheet" type="text/css" href="video.css">
+    <script src="video.js"></script>
 
 </head>
 
 <body style="background-color:rgba(130,130,130,0.2)">
+    <div>
+        <video id="bgvid" playsinline autoplay muted loop>
+          <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+                <!-- <source src="http://thenewcode.com/assets/videos/polina.webm" type="video/webm"> -->
+                <source src="banner.mp4#t=0.1" type="video/mp4">
+                </video>
+        <div class="row" style="height:662px;">
+            <div id="top">
+                <div class="text-vertical-center">
+                    <h1>More Than a Nuisance</h1>
+                    <h3>Free Bootstrap Themes &amp; Templates</h3>
+                    <br>
+                    <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -61,14 +79,14 @@
     </nav>
 
     <!-- Header -->
-    <header id="top" class="header">
-        <div class="text-vertical-center">
+    <!-- <header id="top" class="header"> -->
+    <!-- <div class="text-vertical-center">
             <h1>More Than a Nuisance</h1>
             <h3>Free Bootstrap Themes &amp; Templates</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
-        </div>
-    </header>
+        </div> -->
+    <!-- </header> -->
 
     <!-- About -->
     <section id="about" class="about">
