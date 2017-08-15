@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Urban Noise</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="bodymap/angular.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <!--<script src="lodash.js"></script>
+    <script src="swiper.jquery.min.js"></script>-->
+
+</head>
+
+<body style="background-color:rgba(130,130,130,0.2)">
+
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$( "#menu-close").click();>Content</a>
+            </li>
+            <li>
+                <a href="#top" onclick=$( "#menu-close").click();>Top</a>
+            </li>
+            <li>
+                <a href="#about" onclick=$( "#menu-close").click();>Intro</a>
+            </li>
+            <li>
+                <a href="#services" onclick=$( "#menu-close").click();>Noise in China</a>
+            </li>
+            <li>
+                <a href="#portfolio" onclick=$( "#menu-close").click();>Case by Case</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>More Than a Nuisance</h1>
+            <h3>Study and Data Visulization of China's Urban Noise Pollution</h3>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 style="color:#2f4554"><i>“Silence! Silence!”</i>
+                    </h2>
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">There are, admittedly, fractions of moments that strike every urbanite when they wish they were judges pounding a gavel resentfully and claiming back the golden silence of their own from the hustle and bustle of urban life.
+                    </p>
+                    <p class="lead">And the bogey of noise is not exclusive to our times. “In a thousand senses, I proclaim the indispensable worth of Silence, our only safe dwelling-place ­often”. So wrote Thomas Carlyle, a Scottish historian, in a letter to his friend
+                        in 1840 - when all the mechanical monsters condemned as noise sources were still beyond imagination.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6">
+                    <p class="lead">Noise is often defined as the sound that is unwanted, disturbing, annoying, and even detrimental to health when it is excessive and becomes noise pollution. Intrinsic to the modern soundscape, noise is everywhere, yet in many cases
+                        nowhere to be solved.
+                    </p>
+                    <p class="lead">According to the United Nation, noise pollution is regarded as “an increasingly omnipresent, yet underestimated, form of pollution”. A report by World Health Organization in 2011 shows that at least one million healthy life years are
+                        lost every year from traffic-related noises in Western Europe.
+                    </p>
+                    <p class="lead">As in China, an increasing emphasis on noise pollution has been witnessed in recent decades, in tandem with its ambitious plan of urbanization, the astounding economic development and the overwhelming number of population.
+                    </p>
+                    <p class="lead">The Chinese Ministry of Environmental Protection has published annual reports on environmental noise prevention and control since 2011, demonstrating the situation of environmental noises in China with possible solutions proposed.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/info1.png" style="width:350px;height:550px">
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class: "row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">Thumbing through the reports from 2011 to 2017, one may soon realize the danger of the background grumble of our daily life and how noise is more than a nuisance. To begin with, there is something about noise that you need to know.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 style="color:#2f4554"><i>Introduction to Noise 101</i></h2>
+                </div>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-4">
+                    <!-- BodyMap -->
+                    </br>
+                    </br>
+                    </br>
+                    <div ng-app="dBexampleApp">
+
+                        <div ng-controller="dBcontroller">
+                            <div class="row">
+                                <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
+                                <!--usemap="#myMap"-->
+                                <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
+                                <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
+                                <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
+                                <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                            </div>
+                            <div class="row">
+                                <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
+                                <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
+                                <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
+                                <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
+                                <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
+                                <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
+                                <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
+                                <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
+                                <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
+                                <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
+                                <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
+                                <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Repture</b>
+                            </div>
+
+                            <div class="row">
+                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
+                                <datalist id="tickmarks">
+                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Angualr js script for body map -->
+                    <script>
+                        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+                            $scope.AngdB = 0;
+
+                            $scope.getAngdB = function() {
+                                return $scope.AngdB;
+                            };
+                            $scope.dBchange = function() {
+                                $scope.AngdB = parseInt($scope.AngdB);
+                            }
+                        });
+                    </script>
+                    <!-- Angualr js script for body map -->
+                    <!-- BodyMap -->
+                </div>
+                <div class="col-md-4">
+                    <p class="lead" style="text-align:left">So, to what extent should an “unwanted sound” be considered as “noise”? Have a look at our interactive body map and embark a journey through the soundscape in your mind.
+                    </p>
+                    <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
+                    </p>
+                    <p class="lead" style="text-align:left">When it fluctuates between 40 and 50dB, which are still considered to be a “comfortable” sound level, it is equivalent to the sound of typing or printing in a quite office where no one talks, yet considered to be disturbing for medical,
+                        education and residence areas at night, according to the annual reports. </p>
+                    <p class="lead" style="text-align:left">At 55dB, a similar sound level to people talking in normal voice, could be affecting the aforementioned areas during the day, while noises between 55 and 60dB will be “slightly noisy” and categorized as “average” level of urban environmental
+                        noise.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class: "row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead">To goes beyond 70dB, noises are considered to be “pollution” and start to distract people from what they are doing. The sound of phone ringing, the environmental sound inside a moving train, noises at this level can result in a rise
+                        in blood pressure with a decline in concentration.
+                    </p>
+                    <p class="lead" style="text-align:left">A bus passing by at around 80dB, a dog barking ferociously at around 90dB, human would feel very uncomfortable, with the levels of endocrine starting to change and resulting in anxiety and bad headaches. Working in a sound environment
+                        with noises higher than 80dB would also cause blurred vision and dizzy head.
+                    </p>
+                    <p class="lead" style="text-align:left">It would be ‘extremely noisy and uncomfortable’ when the decibels arrive at 100dB, which is similar to a train passing by an iron railway bridge, whereas the singing of Karaoke inside a confined room would reach at 110dB, causing reflective
+                        movement of muscles and the intention to sing and dance.
+                    </p>
+                    <p class="lead" style="text-align:left">Beyond that, noises are no more fussy issues but deadly threats to our health. Severe damages would be made to ears when noises fly above 120dB to 130dB, equivalent to the sound of a working combustion engine of airplane. Hearing lost
+                        and eardrum rupture could be caused by noises louder than 140dB.
+                    </p>
+                    <p class="lead" style="text-align:left">Quite alarming, isn’t it? In an effort to better prevent and control the adverse influences of the unwanted sounds, China has developed a series of measurements regarding the categorization of different urban spaces and standards of
+                        environmental noises in each zone at different time respectively.
+                    </p>
+                    <p class="lead" style="text-align:left">The dozens of annual reports released by the environment protection ministry offered a glimpse of the noise environment of China from various perspectives – some are not so surprising, while the others are rather jaw-dropping findings.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Services -->
+    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <section id="services" class="services bg-primary">
+        <div class="container">
+
+            <div class="row text-center">
+                <h2 style="color:#2f4554"><i>Overall Situation of Environmental Noise in China</i>
+                </h2>
+                <hr class="small">
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead">Urban spaces are well defined and categorized into five general zones with different requirements of environmental noises.
+
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4">
+                    <img src="img/info2.png" style="width:400px;height:600px;margin-right:50%">
+                </div>
+                <div class="col-md-6">
+                    <div id="chart3" style="width: 650px;height:675px;">
+                        <script>
+                            var myChart = echarts.init(document.getElementById('chart3'));
+                            var bdzData = '% of Places that Meeted the Sound Environment Standard';
+                            var timeLineData = [2013, 2014, 2015, 2016];
+                            var yData = ['Zone 0', 'Zone 1', 'Zone 2', 'Zone 3', 'Zone 4'];
+                            var WLData = ['Daytime', 'Night'];
+                            var colors = ['#8ccdb0', '#80c1c0', '#50a3ba', '#669999', '#446565'];
+                            WOData = {
+                                    2013: [66, 87, 90.8, 97.3, 91.9],
+                                    2014: [77, 87.2, 91.4, 96.5, 95.1],
+                                    2015: [80.7, 87.3, 93, 97.3, 93.55],
+                                    2016: [78.6, 87.4, 92.5, 97.2, 93.95],
+                                },
+                                WSData = {
+                                    2013: [46.6, 71.1, 80.9, 88, 47.6],
+                                    2014: [61.1, 72, 79.8, 86.8, 42.35],
+                                    2015: [64.9, 74.7, 83.3, 88.1, 57.4],
+                                    2016: [57.3, 72.8, 83.4, 88.3, 61.3],
+                                },
+
+
+                                option = {
+                                    baseOption: {
+                                        title: {},
+                                        timeline: {
+                                            axisType: 'category',
+                                            autoPlay: true,
+                                            playInterval: 3000,
+                                            lineStyle: {
+                                                color: '#555'
+                                            },
+                                            checkpointStyle: {
+                                                color: '#bbb',
+                                                borderColor: '#777',
+                                                borderWidth: 2
+                                            },
+                                            controlStyle: {
+                                                normal: {
+                                                    color: '#666',
+                                                    borderColor: '#666'
+                                                },
+                                                emphasis: {
+                                                    color: '#aaa',
+                                                    borderColor: '#aaa'
+                                                }
+                                            },
+                                            data: [],
+                                            label: {
+                                                formatter: function(s) {
+                                                    return (new Date(s)).getFullYear();
+                                                }
+                                            }
+                                        },
+                                        tooltip: {
+                                            trigger: 'axis',
+                                            axisPointer: {
+                                                type: 'shadow'
+                                            },
+                                            // formatter: "{a} <br/>{b} : {c}%"
+                                        },
+                                        legend: {
+                                            data: [],
+                                            right: '5%',
+                                            bottom: '85%'
+                                        },
+                                        grid: {
+                                            left: '3%',
+                                            containLabel: true,
+                                            top: '15%'
+                                        },
+                                        xAxis: {
+                                            type: 'value',
+                                            "axisLabel": {
+                                                "interval": 0,
+                                                formatter: '{value}%',
+                                            }
+                                        },
+                                        yAxis: {
+                                            type: 'category',
+                                            data: yData,
+                                            nameTextStyle: {
+                                                color: '#333333'
+                                            },
+                                            inverse: true
+                                        },
+                                        series: [],
+                                        animationEasing: 'elasticOut',
+                                        animationDelayUpdate: function(idx) {
+                                            return idx * 5;
+                                        }
+                                    },
+                                    options: []
+                                };
+                            for (var n = 0; n < timeLineData.length; n++) {
+                                option.baseOption.legend.data = WLData;
+                                option.baseOption.timeline.data.push(timeLineData[n]);
+                                option.options.push({
+                                    title: {
+                                        show: true,
+                                        text: 'Compliance Rate of Environment Noise in Different Zones',
+                                        subtext: timeLineData[n],
+                                        subtextStyle: {
+                                            fontSize: 30,
+                                            fontWeight: "bold",
+                                            color: '#2f4554',
+                                            textAligh: 'center',
+                                        },
+                                        textStyle: {
+                                            fontSize: 18,
+                                            color: '#2f4554'
+                                        },
+                                        textAlign: 'left',
+                                        textBaseline: 'right',
+                                        padding: [10, 0, 0, 80],
+                                    },
+                                    series: [{
+                                        name: WLData[0],
+                                        type: 'bar',
+                                        barGap: '10%',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#50a3ba',
+                                            },
+                                        },
+                                        label: {
+                                            normal: {
+                                                show: true
+                                            }
+                                        },
+                                        data: WOData[timeLineData[n]],
+                                    }, {
+                                        name: WLData[1],
+                                        type: 'bar',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#446565',
+                                            },
+                                        },
+                                        label: {
+                                            normal: {
+                                                show: true
+                                            }
+                                        },
+                                        data: WSData[timeLineData[n]],
+                                    }]
+                                });
+                            }
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">The Zone 0 of sanatoriums and villas, where people resided there to recover from illnesses, has the strictest noise requirement of less than 50dB by day and 40dB at night, followed by neighborhoods of hospitals, schools and residence
+                        areas, or the Zone 1, requiring the noise decibels to be lower than 55 by day and 45 at night.
+                    </p>
+                    <p class="lead" style="text-align:left">Zone 2 is the mixed areas of commercial buildings and residential community, 60dB by day and 50 by night. After that, the other zones would be clear of residential community, with only industrial and transport areas included.
+                    </p>
+                    <p class="lead" style="text-align:left">The noise environment of Zone 3, the industrial areas, is limited to 65dB by day and 55dB at night, whereas Zone 4, including Zone 4a as roadside areas and Zone 4b as areas near railways, is required to keep the noises down to 70dB
+                        by the day and 55dB (4a) or 60dB (4b) at night.
+                    </p>
+                    <p class="lead" style="text-align:left">To divide the noise environment into day and night, the reported compliance rate of different areas reveal a stark contrast that worth our attention.
+                    </p>
+                    <p class="lead" style="text-align:left">From 2013 to 2016, during daytime, most zones have seen a rather satisfying compliance rate, with most of them higher than 90 per cent, especially the mixed areas of commercial and residential community (Zone 2) together with the industrial
+                        areas (Zone 3).
+                    </p>
+                    <p class="lead" style="text-align:left">Zone 0 falls short in the daytime environmental noise ranking, 20 per cent lower than other zones on average, yet has seen an improvement from 66 per cent in 2013 to 78.6 per cent in 2016.
+                    </p>
+                    <p class="lead" style="text-align:left">However, the noise environment of different zones at night is way below standard.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-7">
+                    <div id="map" style="width: 700px;height:550px;">
+                        <script src="js/echarts.js"></script>
+                        <script src="js/china.js"></script>
+                        <script>
+                            var myChart = echarts.init(document.getElementById('map'));
+                            var geoCoordMap = {
+                                'Ningbo': [29.86, 121.54],
+                                'Qingdao': [120.33, 36.07],
+                                'Lhasa': [91.11, 29.97],
+                                'Shanghai': [121.48, 31.22],
+                                'Xiamen': [118.1, 24.46],
+                                'Fuzhou': [119.3, 26.08],
+                                'Nanning': [108.33, 22.84],
+                                'Guangzhou': [113.23, 23.16],
+                                'Taiyuan': [112.53, 37.87],
+                                'Kunming': [102.73, 25.04],
+                                'Shenzhen': [114.07, 22.62],
+                                'Haikou': [110.35, 20.02],
+                                'Dalian': [121.62, 38.92],
+                                'Shenyang': [123.38, 41.8],
+                                'Changchun': [125.35, 43.88],
+                                'Yinchuan': [106.27, 38.47],
+                                'Nanchang': [115.89, 28.68],
+                                'Xining': [101.74, 36.56],
+                                'Hohhot': [111.65, 40.82],
+                                'Chengdu': [104.06, 30.67],
+                                'XiAn': [108.95, 34.27],
+                                'Chongqing': [106.54, 29.59],
+                                'Nanjing': [118.78, 32.04],
+                                'Guiyang': [106.71, 26.57],
+                                'Beijing': [116.46, 39.92],
+                                'Urumqi': [87.68, 43.77],
+                                'Hangzhou': [120.19, 30.26],
+                                'Jinan': [117, 36.65],
+                                'Lanzhou': [103.73, 36.03],
+                                'Tianjin': [117.2, 39.13],
+                                'Zhengzhou': [113.65, 34.76],
+                                'Harbin': [126.63, 45.75],
+                                'Shijiazhuang': [114.48, 38.03],
+                                'Changsha': [113, 28.21],
+                                'Hefei': [117.27, 31.86],
+                                'Wuhan': [114.31, 30.52],
+                            };
+
+                            var convertData = function(data) {
+                                var res = [];
+                                for (var i = 0; i < data.length; i++) {
+                                    var geoCoord = geoCoordMap[data[i].name];
+                                    if (geoCoord) {
+                                        res.push({
+                                            name: data[i].name,
+                                            value: geoCoord.concat(data[i].value)
+                                        });
+                                    }
+                                }
+                                return res;
+                            };
+
+                            option = {
+                                baseOption: {
+                                    timeline: {
+                                        data: ['Daytime', 'Night'],
+                                        axisType: 'category',
+                                        tooltip: {
+                                            show: false
+                                        },
+                                        playInterval: 10000,
+                                        checkpointStyle: {
+                                            color: '#bbb',
+                                            borderColor: '#777',
+                                            borderWidth: 2
+                                        },
+                                    },
+                                    title: {
+                                        text: 'Compliance Rate of Environment Noise in Major Cities of China, 2016',
+                                        textStyle: {
+                                            color: '#2f4554'
+                                        },
+                                        subtextStyle: {
+                                            fontSize: 30,
+                                            color: '#2f4554'
+                                        },
+                                        sublink: 'http://www.pm25.in',
+                                        x: 'center',
+                                    },
+                                    tooltip: {
+                                        trigger: 'item',
+                                        formatter: function(params) {
+                                            return params.name + ' : ' + params.value[2];
+                                        }
+                                    },
+                                    visualMap: {
+                                        min: 100,
+                                        max: 0,
+                                        splitNumber: 4,
+                                        seriesIndex: 0,
+                                        //:series.data,
+                                        textStyle: {
+                                            color: '#2f4554'
+                                        },
+                                        showLabel: true,
+                                        text: ['Compliance Rate (%)'],
+                                        hoverlink: true,
+                                        inRange: {
+                                            color: ['#d94e5d', '#eac736', '#50a3ba']
+                                        },
+                                    },
+                                    geo: {
+                                        map: 'china',
+                                        label: {
+                                            emphasis: {
+                                                show: false
+                                            }
+                                        },
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#828282',
+                                                borderColor: '#111'
+                                            },
+                                            emphasis: {
+                                                areaColor: '#BDC0BA'
+                                            }
+                                        }
+                                    },
+                                },
+
+                                options: [{
+                                    title: {
+                                        subtext: 'Daytime'
+                                    },
+                                    series: [{
+                                        name: 'Daytime',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        symbol: 'roundRect',
+                                        symbolSize: 20,
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 81.3
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 86.3
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 89.6
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 94.4
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 100
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 92.9
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 90.6
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 70.6
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 93.0
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 96.9
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 84.1
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 93.1
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 98.8
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 95
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 80.6
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 50.0
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 77.1
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 78.3
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 63.6
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 89.3
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 100
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 84.9
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 79.3
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 100
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 100
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 100
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 62.5
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 71.4
+                                        }, {
+                                            name: 'Xining',
+                                            value: 60
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 100
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 93.3
+                                        }])
+                                    }]
+                                }, {
+                                    title: {
+                                        subtext: 'Night'
+                                    },
+                                    series: [{
+                                        name: 'Night',
+                                        type: 'scatter',
+                                        coordinateSystem: 'geo',
+                                        data: convertData([{
+                                            name: 'Beijing',
+                                            value: 43.8
+                                        }, {
+                                            name: 'Tianjin',
+                                            value: 57.5
+                                        }, {
+                                            name: 'Shijiazhuang',
+                                            value: 35.4
+                                        }, {
+                                            name: 'Taiyuan',
+                                            value: 72.2
+                                        }, {
+                                            name: 'Hohhot',
+                                            value: 45.0
+                                        }, {
+                                            name: 'Shenyang',
+                                            value: 85.7
+                                        }, {
+                                            name: 'Changchun',
+                                            value: 39.1
+                                        }, {
+                                            name: 'Harbin',
+                                            value: 50
+                                        }, {
+                                            name: 'Shanghai',
+                                            value: 68.8
+                                        }, {
+                                            name: 'Nanjing',
+                                            value: 87.5
+                                        }, {
+                                            name: 'Hangzhou',
+                                            value: 58
+                                        }, {
+                                            name: 'Hefei',
+                                            value: 75.9
+                                        }, {
+                                            name: 'Fuzhou',
+                                            value: 70
+                                        }, {
+                                            name: 'Nanchang',
+                                            value: 68.8
+                                        }, {
+                                            name: 'Jinan',
+                                            value: 50
+                                        }, {
+                                            name: 'Zhengzhou',
+                                            value: 31.3
+                                        }, {
+                                            name: 'Wuhan',
+                                            value: 43.8
+                                        }, {
+                                            name: 'Changsha',
+                                            value: 41.7
+                                        }, {
+                                            name: 'Guangzhou',
+                                            value: 56.8
+                                        }, {
+                                            name: 'Nanning',
+                                            value: 46.4
+                                        }, {
+                                            name: 'Haikou',
+                                            value: 62.5
+                                        }, {
+                                            name: 'Chongqing',
+                                            value: 57
+                                        }, {
+                                            name: 'Chengdu',
+                                            value: 53.7
+                                        }, {
+                                            name: 'Guiyang',
+                                            value: 31.3
+                                        }, {
+                                            name: 'Kunming',
+                                            value: 71.9
+                                        }, {
+                                            name: 'Lhasa',
+                                            value: 87.5
+                                        }, {
+                                            name: 'XiAn',
+                                            value: 31.3
+                                        }, {
+                                            name: 'Lanzhou',
+                                            value: 28.6
+                                        }, {
+                                            name: 'Xining',
+                                            value: 35
+                                        }, {
+                                            name: 'Yinchuan',
+                                            value: 100
+                                        }, {
+                                            name: 'Urumqi',
+                                            value: 56.7
+                                        }])
+                                    }]
+                                }]
+                            }
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p class="lead" style="text-align:left">Zone 1, where people resided and sleep at night, has only attained a compliance rate less than 75 per cent – meaning that one quarter of cities in China are sleeping in noises that are already disturbing to their normal life.
+                    </p>
+                    <p class="lead" style="text-align:left">The most unqualified areas are Zone 4 on the roadside or near the railways, seeing the lowest compliance rate at 42 per cent in 2014 and the highest at 61 per cent in 2016 only. Traffic noises remain one of the biggest and most difficult
+                        noise sources in China.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <br>
+                    <p class="lead" style="text-align:left">Moreover, Zone 0, where the sanatoriums are located in, has seen a 46.6 per cent compliance rate in 2013, lowest among the five zones. It indicates that those who were in greatest need for a quiet environment suffered most from the
+                        ill-managed noise environment.
+                    </p>
+                    <p class="lead" style="text-align:left">Even though the rate of Zone 0 improves a lot during the years, peaked at 64.9 per cent in 2015, it is still below the average level and requires greater attention.
+
+                    </p>
+                    <p class="lead" style="text-align:left">Moreover, the background grumble of our daily life turns out to be one of the most critical environment issues. From 2010 to 2016, the number of complaints filed against noise pollution has doubled from 250,000 to more than 500,000,
+                        taking up more than half of the environment-related complaints.
+                    </p>
+                    <p class="lead" style="text-align:left">Despite consistent investment in noise prevention and control, with more than one billion yuan each year, the overall situation of environmental noise in China is still alarming, due to several major noise sources, ranging from traffic
+                        noise to population density, and the absence of effective management system.
+                    </p>
+
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2 style="color:#2f4554"><i>Noise: More Than a Nuisance
+                        </i></h2>
+                    <hr class="small">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">“Ancient life was all silence. In the 19th century, with the invention of the machine, noise was born”, said Luigi Russolo, Italian painter and composer, in his futurist manifesto called The Art of Noises in 1913.
+
+                    </p>
+                    <p class="lead" style="text-align:left">Yet in reality, noises are rather fussy than artsy – just like how the unwanted sound sabotages the harmonics of urban life with the existence of which is hardly avoidable or traceable.
+                    </p>
+                    <p class="lead" style="text-align:left">Walking across the urban soundscapes of different cities in China, one may get to notice the looming cloud of noises that comes from all directions, no matter you are at home or one the way back home, asleep or trying to get some sleep,
+                        working or just off work.
+                    </p>
+                    <p class="lead" style="text-align:left">WU Fei, a 23-year-old young historian studying in Hong Kong, found herself helpless when dealing with the noises from a construction site next to her home in Dandong City.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- Dandong -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="dandongMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Dandong</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                    <source src="videos/dandong.mp4#t=0.8" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <p class="lead" style="text-align:left">“The residential community we live in has been under construction for years now, ever since we moved in”, she said. “The workers start working after 5:30 am every day, and last night it did not stop until 11:30pm.”
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">The official construction time period set by the government is from 6am to 10pm.Wu tried to negotiate with the property management office, which passed the buck of complaints to the local environmental protection bureau.
+                    </p>
+                    <p class="lead" style="text-align:left">“The officials of the bureau said it is not at their position to stop the construction, since the workers have only exceeded the quiet hours for a few minutes”, Wu said, questioning if this was not their responsibility, then what else
+                        should be.
+                    </p>
+                    <p class="lead" style="text-align:left">Yet for the 26-year-old engineer, WANG Ziwen, who pays frequent visits to construction sites in Hang Zhou, the noises of excavator digging up rocks and muds did not seem to bother him much.
+
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- Hangzhou -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <p class="lead" style="text-align:left">“The noises of excavator tearing down walls are rather loud”, said Wang, who works in a board room at the construction site for more than eight hours every day. “But it is not so harsh and irritating that I could not bear.”
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="hangzhouMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Hangzhou</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                    <source src="videos/hangzhou.mp4#t=0.8" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">Wang said the noises and dust caused by the construction sites were under strict supervision of the urban management officers, which makes it less likely for the company to violate the regulations.
+                    </p>
+                    <p class="lead" style="text-align:left">He added that the company did not provide earplugs or other protection for the workers, nor was he aware how high is the decibels of the construction or whether or not the noises are harmful to his health.
+                    </p>
+                    <p class="lead" style="text-align:left">In Shanghai, another cosmopolitan city located next to Hangzhou, what annoys ZHAI Jihong most is the noises inside the metro station. </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <!-- Shanghai -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="shanghaiMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Shanghai</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                        <source src="videos/shanghai.mp4#t=0.8" type="video/mp4">
+                                    </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-8">
+                    <p class="lead" style="text-align:left">“The sound of an old crappy train braking at the platform is like an upgraded version of that irritating noise when a chalk scratches on the blackboard,” said the 22-year-old data analyst. She takes the metro to work every day, and
+                        has to put up with that unwanted soundbite every day as well. </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">“But isn’t it difficult to define what is noise?” She asked. “My younger sister found that braking noises so unbearable that she had to cover her ears, while my mother was just fine with it.”
+                    </p>
+                    <p class="lead" style="text-align:left">Zhai said it was also difficult to file complaints against the noises pollution in public spaces, especially places extremely crowded like metro stations. </p>
+                    <p class="lead" style="text-align:left">“Everyone is talking, shouting and trying to squeeze into the train. Even if the noises make you feel very uncomfortable, people are still there. And it is impossible to have the train changed.”
+                    </p>
+                    <p class="lead" style="text-align:left">Noise pollution in public areas is also tough to deal with for ZHANG Ping living in Tongcheng, Anhui Province. What strikes her most is not construction or traffic noises, but the sound of music played by a dozens of retirees dancing
+                        at the square downstairs every day.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- Tongcheng -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-6 col-sm-8">
+                    <p class="lead" style="text-align:left">“It is extremely annoying,” the 22-year-old student said. “All the squares nearby are taken by female retirees who live here. They played pop songs at really high volumes which even gives me headaches.”</p>
+                    <p class="lead" style="text-align:left">Similar with Wu’s case in Dandong, Zhang’s attempt to negotiate with the residential property management office was in vain.
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="row service-item">
+                            <div class="col-sm-4">
+                                <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Tongcheng</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                         <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
+                                 </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">“All the officers did was just to post an announcement, suggesting the residents to appropriately arrange their time for the square dances in order not to bother others. That’s it.” She added that it would be difficult for the office
+                        to take serious actions since all the retirees were residents from the neighborhood.
+                    </p>
+                    <p class="lead" style="text-align:left">It feels like a dilemma in which no one wins, and everyone has got their hands tied up when facing the unwelcome yet unavoidable existence of noises.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <!-- Other videos -->
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h3 style="color:#2f4554"><i>Other Cities' Noise
+                            </i></h3>
+                    <hr class="small">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="beijingMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Beijing</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                            <source src="videos/beijing.mp4#t=0.8" type="video/mp4">
+                                        </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="dongguanMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Dongguan</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                            <source src="videos/dongguan.mp4#t=0.8" type="video/mp4">
+                                        </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="hongkongMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Hong Kong</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                                <source src="videos/hongkong.mp4#t=0.8" type="video/mp4">
+                                            </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="quanzhouMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Quanzhou</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                            <source src="videos/quanzhou.mp4#t=0.8" type="video/mp4">
+                                        </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="shenzhenMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Shenzhen</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                            <source src="videos/shenzhen1.mp4#t=0.8" type="video/mp4">
+                                        </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="guangzhouMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Guangzhou</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                                <source src="videos/guangzhou.mp4#t=0.8" type="video/mp4">
+                                            </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Call to Action -->
+    <aside id="services" class="services bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 style="color:#2f4554"><i>Ending</i></h2>
+                </div>
+                <hr class="small">
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">Construction site, roadside, park, shopping mall, metro station, tourist destination, residential community… Take a look at the nine city profiles of urban soundscapes in China. Aren’t these scenarios looking similar to the city you
+                        live in, the park you like to wander in, even the street downstairs that you go across every day to get you breakfast?
+                    </p>
+                    <p class="lead" style="text-align:left">The noises used to be ignored were proved to be more than a nuisance, but a signal, a potential threat, and a hidden bomb of our urban life, that needs to be taken care of with greater attention.
+                    </p>
+                    <p class="lead" style="text-align:left">Despite all the barrages of complaints about noises, the unprecedented development of urbanization and the seemingly unstoppable economic progress, together with an ill-equipped management system that is far behind the schedule of
+                        urban development, noise pollution may continue to secure its seat in the environment for a long time.
+
+                    </p>
+                    <p class="lead" style="text-align:left">Despite all the opaque statistics about decibels and various categorizations, noises, after all, are intrinsically rooted in people’s emotions and feelings, so deep that a brake at the platform, or the falling of a brick, could easily
+                        undermine the rose-coloured vision of cities.
+
+                    </p>
+                    <p class="lead" style="text-align:left">Perhaps the famous slogan – “May the cities make our life better” – shall be rewritten for an added role of noises, that “May the cities make less noise, hence our life better”.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <hr class="small">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="#top" class="btn btn-lg btn-dark">To the top</a>
+                </div>
+            </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>The team</strong>
+                    </h4>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="//juliannawqy.wordpress.com" target="_blank">Julianna Wu</i></a>
+                        </li>
+                        <li>
+                            <a href="//fredlai.wordpress.com" target="_blank">Fred Lai</i></a>
+                        </li>
+                        <li>
+                            <a href="#">Roy Tang</i></a>
+                        </li>
+                    </ul>
+                    <p class="text-muted">Copyright &copy; Bootstrap 2014</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="1.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script>
+        // Closes the sidebar menu
+        $("#menu-close").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Opens the sidebar menu
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#sidebar-wrapper").toggleClass("active");
+        });
+        // Scrolls to the selected menu item on the page
+        $(function() {
+            $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+        //#to-top button appears after scrolling
+        var fixed = false;
+        $(document).scroll(function() {
+            if ($(this).scrollTop() > 250) {
+                if (!fixed) {
+                    fixed = true;
+                    // $('#to-top').css({position:'fixed', display:'block'});
+                    $('#to-top').show("slow", function() {
+                        $('#to-top').css({
+                            position: 'fixed',
+                            display: 'block'
+                        });
+                    });
+                }
+            } else {
+                if (fixed) {
+                    fixed = false;
+                    $('#to-top').hide("slow", function() {
+                        $('#to-top').css({
+                            display: 'none'
+                        });
+                    });
+                }
+            }
+        });
+        // Disable Google Maps scrolling
+        // See http://stackoverflow.com/a/25904582/1607849
+        // Disable scroll zooming and bind back the click event
+        var onMapMouseleaveHandler = function(event) {
+            var that = $(this);
+            that.on('click', onMapClickHandler);
+            that.off('mouseleave', onMapMouseleaveHandler);
+            that.find('iframe').css("pointer-events", "none");
+        }
+        var onMapClickHandler = function(event) {
+                var that = $(this);
+                // Disable the click handler until the user leaves the map area
+                that.off('click', onMapClickHandler);
+                // Enable scrolling zoom
+                that.find('iframe').css("pointer-events", "auto");
+                // Handle the mouse leave event
+                that.on('mouseleave', onMapMouseleaveHandler);
+            }
+            // Enable map zooming with mouse scroll when the user clicks the map
+        $('.map').on('click', onMapClickHandler);
+    </script>
+    <script>
+        var chart2 = document.getElementById('chart2')
+        var chart1 = document.getElementById('chart1')
+        chart2.style.display = 'none'
+        chart1.style.display = 'block'
+
+        function myFunction1() {
+            var x = document.getElementById('chart1');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                chart2.style.display = 'none'
+            }
+        }
+
+        function myFunction2() {
+            var x = document.getElementById('chart2');
+            if (x.style.display === 'none') {
+                x.style.display = 'block';
+                chart1.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- json map of Cities -->
+    <script>
+        $.getJSON('echartsmaps/beijing.json', function(data) {
+            echarts.registerMap('beijing', data);
+            var chart = echarts.init(document.getElementById('beijingMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'beijing'
+                }]
+            });
+        });
+
+        $.getJSON('echartsmaps/dandong.json', function(data) {
+            echarts.registerMap('dandong', data);
+            var chart = echarts.init(document.getElementById('dandongMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'dandong'
+                }]
+            });
+        });
+
+        $.getJSON('echartsmaps/dongguan.json', function(data) {
+            echarts.registerMap('dongguan', data);
+            var chart = echarts.init(document.getElementById('dongguanMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'dongguan'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/hangzhou.json', function(data) {
+            echarts.registerMap('hangzhou', data);
+            var chart = echarts.init(document.getElementById('hangzhouMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'hangzhou'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/hongkong.json', function(data) {
+            echarts.registerMap('hongkong', data);
+            var chart = echarts.init(document.getElementById('hongkongMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'hongkong'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/quanzhou.json', function(data) {
+            echarts.registerMap('quanzhou', data);
+            var chart = echarts.init(document.getElementById('quanzhouMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'quanzhou'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/shanghai.json', function(data) {
+            echarts.registerMap('shanghai', data);
+            var chart = echarts.init(document.getElementById('shanghaiMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'shanghai'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/shenzhen.json', function(data) {
+            echarts.registerMap('shenzhen', data);
+            var chart = echarts.init(document.getElementById('shenzhenMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'shenzhen'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/tongcheng.json', function(data) {
+            echarts.registerMap('tongcheng', data);
+            var chart = echarts.init(document.getElementById('tongchengMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'tongcheng'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/guangzhou.json', function(data) {
+            echarts.registerMap('guangzhou', data);
+            var chart = echarts.init(document.getElementById('guangzhouMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'guangzhou'
+                }]
+            });
+        });
+    </script>
+    <!-- json map of Cities -->
+</body>
+
+</html>
