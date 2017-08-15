@@ -806,7 +806,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                    <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                    <source src="videos/dandong.mp4#t=0.8" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -855,7 +855,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                    <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                    <source src="videos/hangzhou.mp4#t=0.8" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -894,7 +894,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                        <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                        <source src="videos/shanghai.mp4#t=0.8" type="video/mp4">
                                     </video>
                             </div>
                         </div>
@@ -945,7 +945,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                         <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                         <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
                                  </video>
                             </div>
                         </div>
@@ -989,7 +989,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/beijing.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1007,7 +1007,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/dongguan.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1024,7 +1024,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                                <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                                <source src="videos/hongkong.mp4#t=0.8" type="video/mp4">
                                             </video>
                             </div>
                         </div>
@@ -1046,7 +1046,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/quanzhou.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1063,8 +1063,25 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen.mp4" type="video/mp4">
+                                            <source src="videos/shenzhen1.mp4#t=0.8" type="video/mp4">
                                         </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="guangzhouMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Guangzhou</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                                <source src="videos/guangzhou.mp4#t=0.8" type="video/mp4">
+                                            </video>
                             </div>
                         </div>
                     </div>
@@ -1337,6 +1354,16 @@
                 series: [{
                     type: 'map',
                     map: 'tongcheng'
+                }]
+            });
+        });
+        $.getJSON('echartsmaps/guangzhou.json', function(data) {
+            echarts.registerMap('guangzhou', data);
+            var chart = echarts.init(document.getElementById('guangzhouMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'guangzhou'
                 }]
             });
         });
