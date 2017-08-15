@@ -27,16 +27,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="bodymap/angular.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!--<script src="lodash.js"></script>
     <script src="swiper.jquery.min.js"></script>-->
 
-
 </head>
 
-<body style="background-color:rgba(130,130,130,0.2)">
-
+<body style="background-color:rgba(130,130,130,0.2);">
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
@@ -90,6 +89,7 @@
                 <div class="col-md-1 col-sm-0">
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-1 col-sm-0">
                 </div>
@@ -122,11 +122,14 @@
                 </div>
             </div>
             <br>
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 style="color:#2f4554"><i>Introduction to Noise 101</i></h2>
                 </div>
-                <div class="col-md-1 col-sm-0">
+            </div>
+            <div class="row">
+                <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
                     <p class="lead" style="text-align:left">So, to what extent should an “unwanted sound” be considered as “noise”? Have a look at our interactive body map and embark a journey through the soundscape in your mind.
@@ -134,10 +137,69 @@
                 </div>
                 <div class="col-md-1 col-sm-0">
                 </div>
-                <div class="col-md-1 col-sm-0">
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-3">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <!-- BodyMap -->
+                    <div ng-app="dBexampleApp">
+
+                        <div ng-controller="dBcontroller">
+                            <div class="row">
+                                <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
+                                <!--usemap="#myMap"-->
+                                <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
+                                <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
+                                <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
+                                <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                            </div>
+                            <div class="row">
+                                <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
+                                <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
+                                <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
+                                <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
+                                <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
+                                <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
+                                <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
+                                <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
+                                <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
+                                <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
+                                <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
+                                <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Repture</b>
+                            </div>
+
+                            <div class="row">
+                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
+                                <datalist id="tickmarks">
+                                    <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Angualr js script for body map -->
+                    <script>
+                        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+                            $scope.AngdB = 0;
+
+                            $scope.getAngdB = function() {
+                                return $scope.AngdB;
+                            };
+                            $scope.dBchange = function() {
+                                $scope.AngdB = parseInt($scope.AngdB);
+                            }
+                        });
+                    </script>
+                    <!-- Angualr js script for body map -->
+                    <!-- BodyMap -->
                 </div>
+
                 <div class="col-md-4">
                     <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
                     </p>
@@ -150,6 +212,8 @@
                 <div class="col-md-1 col-xs-0">
                 </div>
             </div>
+
+
             <div class: "row">
                 <div class="col-md-1 col-xs-0">
                 </div>
@@ -175,8 +239,7 @@
                 <div class="col-md-1 col-xs-0">
                 </div>
             </div>
-        </div>
-        <!-- /.row -->
+            <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
@@ -783,18 +846,8 @@
                 </div>
                 <div class="col-md-10">
                     <p class="lead" style="text-align:left">“Ancient life was all silence. In the 19th century, with the invention of the machine, noise was born”, said Luigi Russolo, Italian painter and composer, in his futurist manifesto called The Art of Noises in 1913.
+
                     </p>
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-6">
-                    <img src="/img/info3.jpg" style="width:600px;height:550px">
-                </div>
-                <div class="col-md-4">
                     <p class="lead" style="text-align:left">Yet in reality, noises are rather fussy than artsy – just like how the unwanted sound sabotages the harmonics of urban life with the existence of which is hardly avoidable or traceable.
                     </p>
                     <p class="lead" style="text-align:left">Walking across the urban soundscapes of different cities in China, one may get to notice the looming cloud of noises that comes from all directions, no matter you are at home or one the way back home, asleep or trying to get some sleep,
@@ -806,23 +859,9 @@
                 <div class="col-md-1">
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-10">
-                    <p class="lead" style="text-align:left">“The residential community we live in has been under construction for years now, ever since we moved in”, she said. “The workers start working after 5:30 am every day, and last night it did not stop until 11:30pm.”
-                    </p>
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
             <!-- Dandong -->
             <div class="row">
                 <div class="col-md-1">
-                </div>
-                <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">The official construction time period set by the government is from 6am to 10pm.Wu tried to negotiate with the property management office, which passed the buck of complaints to the local environmental protection bureau.
-                    </p>
                 </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="service-item">
@@ -835,11 +874,15 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                        <source src="videos/shenzhen1.mp4" type="video/mp4">
-                                    </video>
+                                    <source src="videos/dandong.mp4#t=0.8" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6 col-xs-8">
+                    <p class="lead" style="text-align:left">“The residential community we live in has been under construction for years now, ever since we moved in”, she said. “The workers start working after 5:30 am every day, and last night it did not stop until 11:30pm.”
+                    </p>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -849,6 +892,8 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
+                    <p class="lead" style="text-align:left">The official construction time period set by the government is from 6am to 10pm.Wu tried to negotiate with the property management office, which passed the buck of complaints to the local environmental protection bureau.
+                    </p>
                     <p class="lead" style="text-align:left">“The officials of the bureau said it is not at their position to stop the construction, since the workers have only exceeded the quiet hours for a few minutes”, Wu said, questioning if this was not their responsibility, then what else
                         should be.
                     </p>
@@ -863,6 +908,10 @@
             <div class="row">
                 <div class="col-md-1">
                 </div>
+                <div class="col-md-6 col-xs-8">
+                    <p class="lead" style="text-align:left">“The noises of excavator tearing down walls are rather loud”, said Wang, who works in a board room at the construction site for more than eight hours every day. “But it is not so harsh and irritating that I could not bear.”
+                    </p>
+                </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="service-item">
                         <div class="row">
@@ -874,15 +923,11 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                        <source src="videos/shenzhen1.mp4" type="video/mp4">
-                                    </video>
+                                    <source src="videos/hangzhou.mp4#t=0.8" type="video/mp4">
+                                </video>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">“The noises of excavator tearing down walls are rather loud”, said Wang, who works in a board room at the construction site for more than eight hours every day. “But it is not so harsh and irritating that I could not bear.”
-                    </p>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -906,10 +951,6 @@
             <div class="row">
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">“The sound of an old crappy train braking at the platform is like an upgraded version of that irritating noise when a chalk scratches on the blackboard,” said the 22-year-old data analyst. She takes the metro to work every day, and
-                        has to put up with that unwanted soundbite every day as well. </p>
-                </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="service-item">
                         <div class="row">
@@ -921,13 +962,17 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
-                                        </video>
+                                        <source src="videos/shanghai.mp4#t=0.8" type="video/mp4">
+                                    </video>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="col-md-6 col-xs-8">
+                    <p class="lead" style="text-align:left">“The sound of an old crappy train braking at the platform is like an upgraded version of that irritating noise when a chalk scratches on the blackboard,” said the 22-year-old data analyst. She takes the metro to work every day, and
+                        has to put up with that unwanted soundbite every day as well. </p>
+                </div>
                 <div class="col-md-1">
                 </div>
             </div>
@@ -952,6 +997,11 @@
             <div class="row">
                 <div class="col-md-1">
                 </div>
+                <div class="col-md-6 col-xs-8">
+                    <p class="lead" style="text-align:left">“It is extremely annoying,” the 22-year-old student said. “All the squares nearby are taken by female retirees who live here. They played pop songs at really high volumes which even gives me headaches.”</p>
+                    <p class="lead" style="text-align:left">Similar with Wu’s case in Dandong, Zhang’s attempt to negotiate with the residential property management office was in vain.
+                    </p>
+                </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="col-md-4 col-xs-6">
                         <div class="row service-item">
@@ -963,16 +1013,11 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                             <source src="videos/shenzhen1.mp4" type="video/mp4">
-                                     </video>
+                                         <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
+                                 </video>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">“It is extremely annoying,” the 22-year-old student said. “All the squares nearby are taken by female retirees who live here. They played pop songs at really high volumes which even gives me headaches.”</p>
-                    <p class="lead" style="text-align:left">Similar with Wu’s case in Dandong, Zhang’s attempt to negotiate with the residential property management office was in vain.
-                    </p>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -1012,7 +1057,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/beijing.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1030,7 +1075,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/dongguan.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1047,7 +1092,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                                <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                                <source src="videos/hongkong.mp4#t=0.8" type="video/mp4">
                                             </video>
                             </div>
                         </div>
@@ -1069,7 +1114,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen1.mp4" type="video/mp4">
+                                            <source src="videos/quanzhou.mp4#t=0.8" type="video/mp4">
                                         </video>
                             </div>
                         </div>
@@ -1086,8 +1131,25 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/shenzhen.mp4" type="video/mp4">
+                                            <source src="videos/shenzhen1.mp4#t=0.8" type="video/mp4">
                                         </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div id="guangzhouMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Guangzhou</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                                <source src="videos/guangzhou.mp4#t=0.8" type="video/mp4">
+                                            </video>
                             </div>
                         </div>
                     </div>
@@ -1363,9 +1425,18 @@
                 }]
             });
         });
+        $.getJSON('echartsmaps/guangzhou.json', function(data) {
+            echarts.registerMap('guangzhou', data);
+            var chart = echarts.init(document.getElementById('guangzhouMap'));
+            chart.setOption({
+                series: [{
+                    type: 'map',
+                    map: 'guangzhou'
+                }]
+            });
+        });
     </script>
     <!-- json map of Cities -->
-
 </body>
 
 </html>
