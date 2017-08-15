@@ -65,10 +65,6 @@
             <h1 style="color:white">More Than a Nuisance</h1>
             <h3 style="color:white">A Multimedia Report on the Noisy China that You Don't Know, or Have Already “Heard” of</h3>
             <br>
-            <a href="#about" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-play"></span>
-                </button>
-            </a>
         </div>
     </header>
 
@@ -144,44 +140,52 @@
 
             <div class="row">
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <!-- BodyMap -->
                     <div ng-app="dBexampleApp">
 
                         <div ng-controller="dBcontroller">
-                            <div class="row">
-                                <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
-                                <!--usemap="#myMap"-->
-                                <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
-                                <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
-                                <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
-                                <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
-                                <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
+                                    <!--usemap="#myMap"-->
+                                    <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
+                                    <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
+                                    <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                    <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
+                                    <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                                </div>
+                                <div class="row">
+                                    <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
+                                    <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
+                                    <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
+                                    <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
+                                    <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
+                                    <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
+                                    <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
+                                    <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
+                                    <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
+                                    <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                    <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
+                                    <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
+                                    <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
+                                </div>
                             </div>
-                            <div class="row">
-                                <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
-                                <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
-                                <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
-                                <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
-                                <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
-                                <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
-                                <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
-                                <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
-                                <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
-                                <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
-                                <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
-                                <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
-                                <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Repture</b>
-                            </div>
-
-                            <div class="row">
-                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
-                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
-                                <datalist id="tickmarks">
-                                    <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
-                                </datalist>
+                            <div class="col-md-3">
+                                <div class="row">
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                    <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="height:225px;width:30px;-webkit-appearance: slider-vertical;" list="tickmarks" orient="vertical">
+                                    <datalist id="tickmarks">
+                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                    </datalist>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -202,6 +206,7 @@
                     <!-- Angualr js script for body map -->
                     <!-- BodyMap -->
                 </div>
+
 
                 <div class="col-md-4">
                     <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
@@ -886,6 +891,17 @@
             <div class="row">
                 <div class="col-md-1">
                 </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">The official construction time period set by the government is from 6am to 10pm.Wu tried to negotiate with the property management office, which passed the buck of complaints to the local environmental protection bureau.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="service-item">
                         <div class="row">
@@ -897,16 +913,42 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                    <source src="videos/dandong.mp4#t=0.8" type="video/mp4">
-                                </video>
+                                        <source src="videos/dandong.mp4#t=0.8" type="video/mp4">
+                                    </video>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">The official construction time period set by the government is from 6am to 10pm.Wu tried to negotiate with the property management office, which passed the buck of complaints to the local environmental protection bureau.
+                    <p class="lead" style="text-align:left">“The officials of the bureau said it is not at their position to stop the construction, since the workers have only exceeded the quiet hours for a few minutes”, Wu said, questioning if this was not their responsibility, then what else
+                        should be.
                     </p>
                 </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">Yet for the 26-year-old engineer, WANG Ziwen, who pays frequent visits to construction sites in Hang Zhou, the noises of excavator digging up rocks and muds did not seem to bother him much.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <!-- Hangzhou -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">“The noises of excavator tearing down walls are rather loud”, said Wang, who works in a board room at the construction site for more than eight hours every day. “But it is not so harsh and irritating that I could not bear.”
+                    </p>
+                </div>
+
                 <div class="col-md-1">
                 </div>
             </div>
@@ -914,23 +956,8 @@
             <div class="row">
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-10">
-                    <p class="lead" style="text-align:left">“The officials of the bureau said it is not at their position to stop the construction, since the workers have only exceeded the quiet hours for a few minutes”, Wu said, questioning if this was not their responsibility, then what else
-                        should be.
-                    </p>
-                    <p class="lead" style="text-align:left">Yet for the 26-year-old engineer, WANG Ziwen, who pays frequent visits to construction sites in Hang Zhou, the noises of excavator digging up rocks and muds did not seem to bother him much.
-
-                    </p>
-                </div>
-                <div class="col-md-1">
-                </div>
-            </div>
-            <!-- Hangzhou -->
-            <div class="row">
-                <div class="col-md-1">
-                </div>
                 <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">“The noises of excavator tearing down walls are rather loud”, said Wang, who works in a board room at the construction site for more than eight hours every day. “But it is not so harsh and irritating that I could not bear.”
+                    <p class="lead" style="text-align:left">Wang said the noises and dust caused by the construction sites were under strict supervision of the urban management officers, which makes it less likely for the company to violate the regulations.
                     </p>
                 </div>
                 <div class="col-md-4 col-xs-6">
@@ -944,8 +971,8 @@
                             </div>
                             <div class="col-xs-8">
                                 <video width="240" height="136" controls>
-                                    <source src="videos/hangzhou.mp4#t=0.8" type="video/mp4">
-                                </video>
+                                        <source src="videos/hangzhou.mp4#t=0.8" type="video/mp4">
+                                    </video>
                             </div>
                         </div>
                     </div>
@@ -953,22 +980,33 @@
                 <div class="col-md-1">
                 </div>
             </div>
-            <!-- text -->
+
             <div class="row">
                 <div class="col-md-1">
                 </div>
+
                 <div class="col-md-10">
-                    <p class="lead" style="text-align:left">Wang said the noises and dust caused by the construction sites were under strict supervision of the urban management officers, which makes it less likely for the company to violate the regulations.
-                    </p>
                     <p class="lead" style="text-align:left">He added that the company did not provide earplugs or other protection for the workers, nor was he aware how high is the decibels of the construction or whether or not the noises are harmful to his health.
                     </p>
                     <p class="lead" style="text-align:left">In Shanghai, another cosmopolitan city located next to Hangzhou, what annoys ZHAI Jihong most is the noises inside the metro station. </p>
                 </div>
+
                 <div class="col-md-1">
                 </div>
             </div>
 
             <!-- Shanghai -->
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">“The sound of an old crappy train braking at the platform is like an upgraded version of that irritating noise when a chalk scratches on the blackboard,” said the 22-year-old data analyst. She takes the metro to work every day, and
+                        has to put up with that unwanted soundbite every day as well. </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <!-- text -->
             <div class="row">
                 <div class="col-md-1">
                 </div>
@@ -989,22 +1027,20 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-xs-8">
-                    <p class="lead" style="text-align:left">“The sound of an old crappy train braking at the platform is like an upgraded version of that irritating noise when a chalk scratches on the blackboard,” said the 22-year-old data analyst. She takes the metro to work every day, and
-                        has to put up with that unwanted soundbite every day as well. </p>
+                    <p class="lead" style="text-align:left">“But isn’t it difficult to define what is noise?” She asked. “My younger sister found that braking noises so unbearable that she had to cover her ears, while my mother was just fine with it.”
+                    </p>
+                    <p class="lead" style="text-align:left">Zhai said it was also difficult to file complaints against the noises pollution in public spaces, especially places extremely crowded like metro stations. </p>
                 </div>
+
                 <div class="col-md-1">
                 </div>
             </div>
-            <!-- text -->
+
             <div class="row">
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
-                    <p class="lead" style="text-align:left">“But isn’t it difficult to define what is noise?” She asked. “My younger sister found that braking noises so unbearable that she had to cover her ears, while my mother was just fine with it.”
-                    </p>
-                    <p class="lead" style="text-align:left">Zhai said it was also difficult to file complaints against the noises pollution in public spaces, especially places extremely crowded like metro stations. </p>
                     <p class="lead" style="text-align:left">“Everyone is talking, shouting and trying to squeeze into the train. Even if the noises make you feel very uncomfortable, people are still there. And it is impossible to have the train changed.”
                     </p>
                     <p class="lead" style="text-align:left">Noise pollution in public areas is also tough to deal with for ZHANG Ping living in Tongcheng, Anhui Province. What strikes her most is not construction or traffic noises, but the sound of music played by a dozens of retirees dancing
@@ -1014,6 +1050,7 @@
                 <div class="col-md-1">
                 </div>
             </div>
+
             <!-- Tongcheng -->
             <div class="row">
                 <div class="col-md-1">
@@ -1025,17 +1062,19 @@
                 </div>
                 <div class="col-md-4 col-xs-6">
                     <div class="col-md-4 col-xs-6">
-                        <div class="row service-item">
-                            <div class="col-xs-4">
-                                <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
-                                <h4>
-                                    <strong>Tongcheng</strong>
-                                </h4>
-                            </div>
-                            <div class="col-xs-8">
-                                <video width="240" height="136" controls>
+                        <div class="row">
+                            <div class="service-item">
+                                <div class="col-xs-4">
+                                    <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
+                                    <h4>
+                                        <strong>Tongcheng</strong>
+                                    </h4>
+                                </div>
+                                <div class="col-xs-8">
+                                    <video width="240" height="136" controls>
                                          <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
                                  </video>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1238,7 +1277,7 @@
                             <a href="//fredlai.wordpress.com" target="_blank">Fred Lai</i></a>
                         </li>
                         <li>
-                            <a href="#">Roy Tang</i></a>
+                            <a href="mailto:roytang.rb@gmail.com">Roy Tang</i></a>
                         </li>
                     </ul>
                     <p class="text-muted">Copyright &copy; Bootstrap 2014</p>
