@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+
 /* Global Styles */
 
 html,
@@ -13,7 +14,7 @@ body {
 }
 
 body {
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .text-vertical-center {
@@ -29,39 +30,42 @@ body {
     font-weight: 700;
 }
 
+
 /* Custom Button Styles */
 
 .btn-dark {
     border-radius: 0;
     color: #fff;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active {
     color: #fff;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .btn-light {
     border-radius: 0;
     color: #333;
-    background-color: rgb(255,255,255);
+    background-color: rgb(255, 255, 255);
 }
 
 .btn-light:hover,
 .btn-light:focus,
 .btn-light:active {
     color: #333;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
+
 
 /* Custom Horizontal Rule */
 
 hr.small {
     max-width: 100px;
 }
+
 
 /* Side Menu */
 
@@ -104,7 +108,7 @@ hr.small {
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-nav li a:active,
@@ -112,17 +116,17 @@ hr.small {
     text-decoration: none;
 }
 
-.sidebar-nav > .sidebar-brand {
+.sidebar-nav>.sidebar-brand {
     height: 55px;
     font-size: 18px;
     line-height: 55px;
 }
 
-.sidebar-nav > .sidebar-brand a {
+.sidebar-nav>.sidebar-brand a {
     color: #999;
 }
 
-.sidebar-nav > .sidebar-brand a:hover {
+.sidebar-nav>.sidebar-brand a:hover {
     color: #fff;
     background: none;
 }
@@ -148,6 +152,7 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
+
 /* Header */
 
 .header {
@@ -162,11 +167,13 @@ hr.small {
     -o-background-size: cover;
 }
 
+
 /* About */
 
 .about {
     padding: 50px 0;
 }
+
 
 /* Services */
 
@@ -177,6 +184,7 @@ hr.small {
 .service-item {
     margin-bottom: 30px;
 }
+
 
 /* Callout */
 
@@ -191,6 +199,7 @@ hr.small {
     background-size: cover;
     -o-background-size: cover;
 }
+
 
 /* Portfolio */
 
@@ -210,6 +219,7 @@ hr.small {
     opacity: 0.8;
 }
 
+
 /* Call to Action */
 
 .call-to-action {
@@ -219,6 +229,7 @@ hr.small {
 .call-to-action .btn {
     margin: 10px;
 }
+
 
 /* Map */
 
@@ -236,15 +247,16 @@ hr.small {
     pointer-events: none;
 }
 
+
 /* Footer */
 
 footer {
-    padding: 100px 0;
+    padding: 35px 0;
 }
 
 #to-top {
-  display: none;
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
+    display: none;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
 }
