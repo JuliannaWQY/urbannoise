@@ -27,6 +27,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="bodymap/angular.js"></script>
     <script type="text/javascript" src="js/echarts.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!--<script src="lodash.js"></script>
@@ -125,9 +126,66 @@
                 <div class="col-lg-12 text-center">
                     <h2 style="color:#2f4554"><i>Introduction to Noise 101</i></h2>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-3">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
+                    <!-- BodyMap -->
+                    </br>
+                    </br>
+                    </br>
+                    <div ng-app="dBexampleApp">
+
+                        <div ng-controller="dBcontroller">
+                            <div class="row">
+                                <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
+                                <!--usemap="#myMap"-->
+                                <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
+                                <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
+                                <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
+                                <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                            </div>
+                            <div class="row">
+                                <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
+                                <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
+                                <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
+                                <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
+                                <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
+                                <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
+                                <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
+                                <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
+                                <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
+                                <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
+                                <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
+                                <b style="font-size:28px; display:inline-block; padding-bottom:20px; padding-top:10px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Repture</b>
+                            </div>
+
+                            <div class="row">
+                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
+                                <datalist id="tickmarks">
+                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Angualr js script for body map -->
+                    <script>
+                        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+                            $scope.AngdB = 0;
+
+                            $scope.getAngdB = function() {
+                                return $scope.AngdB;
+                            };
+                            $scope.dBchange = function() {
+                                $scope.AngdB = parseInt($scope.AngdB);
+                            }
+                        });
+                    </script>
+                    <!-- Angualr js script for body map -->
+                    <!-- BodyMap -->
                 </div>
                 <div class="col-md-4">
                     <p class="lead" style="text-align:left">So, to what extent should an “unwanted sound” be considered as “noise”? Have a look at our interactive body map and embark a journey through the soundscape in your mind.
@@ -1368,7 +1426,6 @@
         });
     </script>
     <!-- json map of Cities -->
-
 </body>
 
 </html>
