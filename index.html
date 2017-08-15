@@ -32,6 +32,25 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <!--<script src="lodash.js"></script>
     <script src="swiper.jquery.min.js"></script>-->
+    <style>
+        .hide {
+            display: none;
+        }
+        
+        .show {
+            display: show;
+        }
+        
+        @media (max-width: 768px) {
+            .hide {
+                display: block !important;
+            }
+            ;
+            .show {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 
@@ -63,7 +82,7 @@
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1 style="color:white">More Than a Nuisance</h1>
-            <h3 style="color:white">A Multimedia Report on the Noisy China that You Don't Know, or Have Already “Heard” of</h3>
+            <h3 style="color:white">A multimedia report on the noisy China that you don't know, or have already “heard” of.</h3>
             <br>
         </div>
     </header>
@@ -149,37 +168,38 @@
                         <div ng-controller="dBcontroller">
                             <div class="col-md-9">
                                 <div class="row">
-                                    <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
+                                    <img src="bodymap/man1.png" style="width:200px;height:400px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
                                     <!--usemap="#myMap"-->
-                                    <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
-                                    <img src="bodymap/man3.png" style="width:225px;height:500px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
-                                    <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
-                                    <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
-                                    <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+                                    <img src="bodymap/man2.png" style="width:200px;height:400px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
+                                    <img src="bodymap/man3.png" style="width:200px;height:400px; display:block" id="man3" ng-if="getAngdB() >= 90 && getAngdB() < 110">
+                                    <img src="bodymap/EMG1.png" style="width:200px;height:400px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                    <img src="bodymap/Ear1.png" style="width:200px;height:400px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
+                                    <img src="bodymap/ear2.png" style="width:200px;height:400px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
                                 </div>
                                 <div class="row">
-                                    <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
-                                    <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
-                                    <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
-                                    <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
-                                    <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
-                                    <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
-                                    <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
-                                    <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
-                                    <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
-                                    <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
-                                    <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
-                                    <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
-                                    <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
+                                    <h4>Volume equals to:</h4>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">Quiet Environment</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 40 && getAngdB() < 50">Normal Environment</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 50 && getAngdB() < 60">Be in a Meeting</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">Chat Happliy</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">Phone Rings</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">Traffic Noise</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">Dog Barks</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">Train Passes</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">Be in Karaoke</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">Be at Construction Site</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">Plane Takes off</b>
+                                    <b style="font-size:28px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3" id="show">
                                 <div class="row">
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
                                     <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
                                     <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="height:225px;width:30px;-webkit-appearance: slider-vertical;" list="tickmarks" orient="vertical">
                                     <datalist id="tickmarks">
@@ -187,23 +207,15 @@
                                     </datalist>
                                 </div>
                             </div>
+                            <!-- <div class="row" id="hide">
+                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
+                                <datalist id="tickmarks">
+                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                    </datalist>
+                            </div> -->
                         </div>
                     </div>
-
-                    <!-- Angualr js script for body map -->
-                    <script>
-                        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
-                            $scope.AngdB = 0;
-
-                            $scope.getAngdB = function() {
-                                return $scope.AngdB;
-                            };
-                            $scope.dBchange = function() {
-                                $scope.AngdB = parseInt($scope.AngdB);
-                            }
-                        });
-                    </script>
-                    <!-- Angualr js script for body map -->
                     <!-- BodyMap -->
                 </div>
 
@@ -213,9 +225,6 @@
                     </p>
                     <p class="lead" style="text-align:left">When it fluctuates between 40 and 50dB, which are still considered to be a “comfortable” sound level, it is equivalent to the sound of typing or printing in a quite office where no one talks, yet considered to be disturbing for medical,
                         education and residence areas at night, according to the annual reports. </p>
-                    <p class="lead" style="text-align:left">At 55dB, a similar sound level to people talking in normal voice, could be affecting the aforementioned areas during the day, while noises between 55 and 60dB will be “slightly noisy” and categorized as “average” level of urban environmental
-                        noise.
-                    </p>
                 </div>
                 <div class="col-md-1 col-xs-0">
                 </div>
@@ -226,6 +235,9 @@
                 <div class="col-md-1 col-xs-0">
                 </div>
                 <div class="col-md-10">
+                    <p class="lead" style="text-align:left">At 55dB, a similar sound level to people talking in normal voice, could be affecting the aforementioned areas during the day, while noises between 55 and 60dB will be “slightly noisy” and categorized as “average” level of urban environmental
+                        noise.
+                    </p>
                     <p class="lead">To goes beyond 70dB, noises are considered to be “pollution” and start to distract people from what they are doing. The sound of phone ringing, the environmental sound inside a moving train, noises at this level can result in a rise
                         in blood pressure with a decline in concentration.
                     </p>
@@ -238,6 +250,203 @@
                     <p class="lead" style="text-align:left">Beyond that, noises are no more fussy issues but deadly threats to our health. Severe damages would be made to ears when noises fly above 120dB to 130dB, equivalent to the sound of a working combustion engine of airplane. Hearing lost
                         and eardrum rupture could be caused by noises louder than 140dB.
                     </p>
+                </div>
+                <div class="col-md-1 col-xs-0">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <div id="chart4" style="margin-left: 8%; width:1000px;height:600px;">
+                        <script>
+                            var myChart = echarts.init(document.getElementById('chart4'));
+                            var dataMap = {};
+
+                            function dataFormatter(obj) {
+                                var pList = ['Ningbo', 'Qingdao', 'Hangzhou', 'Guiyang', 'Shijiazhuang', 'Harbin', 'Changchun', 'Lhasa', 'Shenyang', 'Xining', 'Urumqi', 'Shanghai', 'Kunming', 'Yinchuan'];
+                                var temp;
+                                for (var year = 2007; year <= 2015; year++) {
+                                    var max = 0;
+                                    var sum = 0;
+                                    temp = obj[year];
+                                    for (var i = 0, l = temp.length; i < l; i++) {
+                                        max = Math.max(max, temp[i]);
+                                        sum += temp[i];
+                                        obj[year][i] = {
+                                            name: pList[i],
+                                            value: temp[i]
+                                        }
+                                    }
+                                    obj[year + 'max'] = Math.floor(max / 100) * 100;
+                                    obj[year + 'sum'] = sum;
+                                }
+                                return obj;
+                            }
+
+                            dataMap.dataGDP = dataFormatter({
+                                //max : 60000,
+                                2015: [57, 56.7, 56.2, 58.9, 50.8, 58.3, 56.1, 49, 55.6, 52.2, 53.7, 56.2, 53.5, 53.1],
+                                2014: [58.2, 58.2, 56.4, 59, 52.4, 59.3, 55.6, 48.2, 55.8, 52.5, 53.2, 55.6, 53.8, 53],
+                                2013: [58.7, 57.6, 56.3, 55.4, 52.2, 55.9, 55.3, 47.7, 54.3, 54.3, 54.8, 55.5, 53.7, 53.1],
+                                2012: [55, 53.7, 56.8, 55.5, 52.2, 55.9, 53.6, 47.6, 54.2, 54.7, 54.4, 54.7, 53, 53],
+                                2011: [54.5, 53.7, 57, 56, 54.1, 55.9, 53.1, 46.8, 53.8, 53.6, 52.6, 55, 53, 53.3],
+                                2010: [53.7, 53.6, 57.2, 55.6, 50.3, 56, 55.9, 46.8, 53.7, 53.2, 54.5, 55.8, 52.9, 54],
+                                2009: [53.2, 53.5, 57.2, 55.8, 50.4, 55.7, 55.9, 45.9, 53.4, 52.4, 55, 54.9, 52.7, 55],
+                                2008: [53.4, 53.4, 60, 55.8, 50.2, 55.8, 56.1, 46.4, 53.3, 52.6, 55, 57, 52.1, 53.7],
+                                2007: [53.8, 53.6, 60.1, 55.8, 50.4, 55.9, 56.2, 46.5, 54.7, 52.8, 54.7, 56.8, 51.9, 53.8],
+                            });
+
+
+                            option = {
+                                baseOption: {
+                                    timeline: {
+                                        // y: 0,
+                                        axisType: 'category',
+                                        // realtime: false,
+                                        // loop: false,
+                                        autoPlay: true,
+                                        // currentIndex: 2,
+                                        playInterval: 1000,
+                                        // controlStyle: {
+                                        //     position: 'left'
+                                        // },
+                                        data: [
+                                            '2007-01-01', '2008-01-01', '2009-01-01', '2010-01-01', '2011-01-01', '2012-01-01', '2013-01-01', '2014-01-01', '2015-01-01'
+                                        ],
+                                        label: {
+                                            formatter: function(s) {
+                                                return (new Date(s)).getFullYear();
+                                            }
+                                        },
+                                        tooltip: {
+                                            show: false
+                                        },
+                                    },
+                                    title: {
+                                        text: 'Noise Index of Chinese Cities that Changed Dramatically in 2007-15'
+                                    },
+                                    textAlign: 'left',
+                                    subtextStyle: {
+                                        color: '#565656',
+                                        fontSize: 25,
+                                        fontWeight: 'bold'
+                                    },
+                                    tooltip: {},
+                                    legend: {
+                                        x: 'right',
+                                        data: ['Noise Index'],
+                                    },
+                                    calculable: true,
+                                    grid: {
+                                        top: 100,
+                                        bottom: 100
+                                    },
+                                    xAxis: [{
+                                        'type': 'category',
+                                        'axisLabel': {
+                                            'interval': 0
+                                        },
+                                        'data': [
+                                            'Ningbo', '\nQingdao', 'Hangzhou', '\nGuiyang', 'Shijiazhuang', '\nHarbin', 'Changchun', '\nLhasa', 'Shenyang', '\nXining', 'Urumqi', '\nShanghai', 'Kunming', '\nYinchuan'
+                                        ],
+                                        splitLine: {
+                                            show: false
+                                        }
+                                    }],
+                                    yAxis: [{
+                                        type: 'value',
+                                        name: 'Noise Index (dB)',
+                                        min: 45,
+                                        max: 60
+                                    }],
+                                    series: [{
+                                        name: 'Noise Index',
+                                        type: 'bar',
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#669999',
+                                            }
+                                        },
+                                    }, ]
+                                },
+                                options: [{
+                                    title: {
+                                        subtext: '2007'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2007']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2008'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2008']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2009'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2009']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2010'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2010']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2011'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2011']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2012'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2012']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2013'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2013']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2014'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2014']
+                                    }, ]
+                                }, {
+                                    title: {
+                                        subtext: '2015'
+                                    },
+                                    series: [{
+                                        data: dataMap.dataGDP['2015']
+                                    }, ]
+                                }]
+                            };
+                            myChart.setOption(option)
+                        </script>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
                     <p class="lead" style="text-align:left">Quite alarming, isn’t it? In an effort to better prevent and control the adverse influences of the unwanted sounds, China has developed a series of measurements regarding the categorization of different urban spaces and standards of
                         environmental noises in each zone at different time respectively.
                     </p>
@@ -1060,25 +1269,22 @@
                     <p class="lead" style="text-align:left">Similar with Wu’s case in Dandong, Zhang’s attempt to negotiate with the residential property management office was in vain.
                     </p>
                 </div>
-                <div class="col-md-4 col-xs-6">
-                    <div class="col-md-4 col-xs-6">
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
                         <div class="row">
-                            <div class="service-item">
-                                <div class="col-xs-4">
-                                    <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
-                                    <h4>
-                                        <strong>Tongcheng</strong>
-                                    </h4>
-                                </div>
-                                <div class="col-xs-8">
-                                    <video width="240" height="136" controls>
-                                         <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
-                                 </video>
+                            <div class="col-sm-4">
+                                <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Tongcheng</strong>
+                                </h4>
+                            </div>
+                            <div class="col-xs-8">
+                                <video width="240" height="136" controls>
+                                             <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <div class="col-md-1">
                 </div>
             </div>
@@ -1135,8 +1341,8 @@
                             </div>
                             <div class="col-sm-8">
                                 <video width="240" height="136" controls>
-                                            <source src="videos/dongguan.mp4#t=0.8" type="video/mp4">
-                                        </video>
+                                                <source src="videos/dongguan.mp4#t=0.8" type="video/mp4">
+                                            </video>
                             </div>
                         </div>
                     </div>
@@ -1235,7 +1441,7 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
-                    <p class="lead" style="text-align:left">Construction site, roadside, park, shopping mall, metro station, tourist destination, residential community… Take a look at the nine city profiles of urban soundscapes in China. Aren’t these scenarios looking similar to the city you
+                    <p class="lead" style="text-align:left">Construction site, roadside, park, shopping mall, metro station, tourist destination, residential community… Take a look at the ten city profiles of urban soundscapes in China. Aren’t these scenarios looking similar to the city you
                         live in, the park you like to wander in, even the street downstairs that you go across every day to get you breakfast?
                     </p>
                     <p class="lead" style="text-align:left">The noises used to be ignored were proved to be more than a nuisance, but a signal, a potential threat, and a hidden bomb of our urban life, that needs to be taken care of with greater attention.
@@ -1280,6 +1486,8 @@
                             <a href="mailto:roytang.rb@gmail.com">Roy Tang</i></a>
                         </li>
                     </ul>
+                    <p class="text-muted">Sources:<a href="http://www.euro.who.int/__data/assets/pdf_file/0008/136466/e94888.pdf">World Health Organization</a>; The Bureau of Statistics of China; The Noise Reports from the Ministry of Environmental Protection of the People's
+                        Republic of China, 2011-2017 </p>
                     <p class="text-muted">Copyright &copy; Bootstrap 2014</p>
                 </div>
             </div>
@@ -1390,6 +1598,21 @@
             }
         }
     </script>
+
+    <!-- Angualr js script for body map -->
+    <script>
+        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+            $scope.AngdB = 0;
+
+            $scope.getAngdB = function() {
+                return $scope.AngdB;
+            };
+            $scope.dBchange = function() {
+                $scope.AngdB = parseInt($scope.AngdB);
+            }
+        });
+    </script>
+    <!-- Angualr js script for body map -->
 
     <!-- json map of Cities -->
     <script>
