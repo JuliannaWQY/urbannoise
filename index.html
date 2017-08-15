@@ -145,10 +145,10 @@
                 <div class="col-md-5">
                     <!-- BodyMap -->
                     <div ng-app="dBexampleApp">
+                        <div class="row">
+                            <div ng-controller="dBcontroller">
+                                <div class="col-md-9">
 
-                        <div ng-controller="dBcontroller">
-                            <div class="col-md-9">
-                                <div class="row">
                                     <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
                                     <!--usemap="#myMap"-->
                                     <img src="bodymap/man2.png" style="width:225px;height:500px; display:block" id="man2" ng-if="getAngdB() >= 70 && getAngdB() < 90">
@@ -156,25 +156,25 @@
                                     <img src="bodymap/EMG1.png" style="width:225px;height:500px; display:block" id="EMG1" ng-if="getAngdB() >= 110 && getAngdB() < 120">
                                     <img src="bodymap/Ear1.png" style="width:225px;height:500px; display:block" id="ear1" ng-if="getAngdB() >= 120 && getAngdB() < 140">
                                     <img src="bodymap/ear2.png" style="width:225px;height:500px; display:block" id="ear2" ng-if="getAngdB() >= 140 && getAngdB() < 181">
+
+                                    <div class="row">
+                                        <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
+                                        <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
+                                        <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
+                                        <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
+                                        <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
+                                        <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
+                                        <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
+                                        <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
+                                        <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
+                                        <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
+                                        <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
+                                        <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
+                                        <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <h1 style="font-size:50px;display:inline-block; overflow:hidden; padding-bottom:12.5px; padding-top:2.5px;" ng-if="getAngdB() >= 0 && getAngdB() < 20">Infrasound</h1>
-                                    <img src="bodymap/rural night.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 20 && getAngdB() < 40">
-                                    <img src="bodymap/rural resident.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 40 && getAngdB() < 50">
-                                    <img src="bodymap/quiet office.jpg" style="width:225px;height:100px; " ng-if="getAngdB() >= 50 && getAngdB() < 60">
-                                    <img src="bodymap/people talking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 60 && getAngdB() < 70">
-                                    <img src="bodymap/phone ringing.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 70 && getAngdB() < 80">
-                                    <img src="bodymap/bus on the road.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 80 && getAngdB() < 90">
-                                    <img src="bodymap/dog barking.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 90 && getAngdB() < 100">
-                                    <img src="bodymap/train arrvial.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 100 && getAngdB() < 110">
-                                    <img src="bodymap/karaoke.png" style="width:225px;height:100px;" ng-if="getAngdB() >= 110 && getAngdB() < 120">
-                                    <img src="bodymap/crusher.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 120 && getAngdB() < 130">
-                                    <img src="bodymap/plane taking off.jpg" style="width:225px;height:100px;" ng-if="getAngdB() >= 130 && getAngdB() <= 140">
-                                    <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="row">
+                                <div class="col-md-3">
+
                                     </br>
                                     </br>
                                     </br>
@@ -184,70 +184,72 @@
                                     <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="height:225px;width:30px;-webkit-appearance: slider-vertical;" list="tickmarks" orient="vertical">
                                     <datalist id="tickmarks">
                                         <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
-                                    </datalist>
+                                        </datalist>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Angualr js script for body map -->
-                    <script>
-                        var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
-                            $scope.AngdB = 0;
-
-                            $scope.getAngdB = function() {
-                                return $scope.AngdB;
-                            };
-                            $scope.dBchange = function() {
-                                $scope.AngdB = parseInt($scope.AngdB);
-                            }
-                        });
-                    </script>
-                    <!-- Angualr js script for body map -->
-                    <!-- BodyMap -->
                 </div>
 
+                <!-- Angualr js script for body map -->
+                <script>
+                    var dBexampleApp = angular.module('dBexampleApp', []).controller('dBcontroller', function($scope) {
+                        $scope.AngdB = 0;
 
-                <div class="col-md-4">
-                    <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
-                    </p>
-                    <p class="lead" style="text-align:left">When it fluctuates between 40 and 50dB, which are still considered to be a “comfortable” sound level, it is equivalent to the sound of typing or printing in a quite office where no one talks, yet considered to be disturbing for medical,
-                        education and residence areas at night, according to the annual reports. </p>
-                    <p class="lead" style="text-align:left">At 55dB, a similar sound level to people talking in normal voice, could be affecting the aforementioned areas during the day, while noises between 55 and 60dB will be “slightly noisy” and categorized as “average” level of urban environmental
-                        noise.
-                    </p>
-                </div>
-                <div class="col-md-1 col-xs-0">
-                </div>
+                        $scope.getAngdB = function() {
+                            return $scope.AngdB;
+                        };
+                        $scope.dBchange = function() {
+                            $scope.AngdB = parseInt($scope.AngdB);
+                        }
+                    });
+                </script>
+                <!-- Angualr js script for body map -->
+                <!-- BodyMap -->
             </div>
 
 
-            <div class: "row">
-                <div class="col-md-1 col-xs-0">
-                </div>
-                <div class="col-md-10">
-                    <p class="lead">To goes beyond 70dB, noises are considered to be “pollution” and start to distract people from what they are doing. The sound of phone ringing, the environmental sound inside a moving train, noises at this level can result in a rise
-                        in blood pressure with a decline in concentration.
-                    </p>
-                    <p class="lead" style="text-align:left">A bus passing by at around 80dB, a dog barking ferociously at around 90dB, human would feel very uncomfortable, with the levels of endocrine starting to change and resulting in anxiety and bad headaches. Working in a sound environment
-                        with noises higher than 80dB would also cause blurred vision and dizzy head.
-                    </p>
-                    <p class="lead" style="text-align:left">It would be ‘extremely noisy and uncomfortable’ when the decibels arrive at 100dB, which is similar to a train passing by an iron railway bridge, whereas the singing of Karaoke inside a confined room would reach at 110dB, causing reflective
-                        movement of muscles and the intention to sing and dance.
-                    </p>
-                    <p class="lead" style="text-align:left">Beyond that, noises are no more fussy issues but deadly threats to our health. Severe damages would be made to ears when noises fly above 120dB to 130dB, equivalent to the sound of a working combustion engine of airplane. Hearing lost
-                        and eardrum rupture could be caused by noises louder than 140dB.
-                    </p>
-                    <p class="lead" style="text-align:left">Quite alarming, isn’t it? In an effort to better prevent and control the adverse influences of the unwanted sounds, China has developed a series of measurements regarding the categorization of different urban spaces and standards of
-                        environmental noises in each zone at different time respectively.
-                    </p>
-                    <p class="lead" style="text-align:left">The dozens of annual reports released by the environment protection ministry offered a glimpse of the noise environment of China from various perspectives – some are not so surprising, while the others are rather jaw-dropping findings.
-                    </p>
-                </div>
-                <div class="col-md-1 col-xs-0">
-                </div>
+            <div class="col-md-4">
+                <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
+                </p>
+                <p class="lead" style="text-align:left">When it fluctuates between 40 and 50dB, which are still considered to be a “comfortable” sound level, it is equivalent to the sound of typing or printing in a quite office where no one talks, yet considered to be disturbing for medical,
+                    education and residence areas at night, according to the annual reports. </p>
+                <p class="lead" style="text-align:left">At 55dB, a similar sound level to people talking in normal voice, could be affecting the aforementioned areas during the day, while noises between 55 and 60dB will be “slightly noisy” and categorized as “average” level of urban environmental
+                    noise.
+                </p>
             </div>
-            <!-- /.row -->
+            <div class="col-md-1 col-xs-0">
+            </div>
+        </div>
+
+
+        <div class: "row">
+            <div class="col-md-1 col-xs-0">
+            </div>
+            <div class="col-md-10">
+                <p class="lead">To goes beyond 70dB, noises are considered to be “pollution” and start to distract people from what they are doing. The sound of phone ringing, the environmental sound inside a moving train, noises at this level can result in a rise in
+                    blood pressure with a decline in concentration.
+                </p>
+                <p class="lead" style="text-align:left">A bus passing by at around 80dB, a dog barking ferociously at around 90dB, human would feel very uncomfortable, with the levels of endocrine starting to change and resulting in anxiety and bad headaches. Working in a sound environment
+                    with noises higher than 80dB would also cause blurred vision and dizzy head.
+                </p>
+                <p class="lead" style="text-align:left">It would be ‘extremely noisy and uncomfortable’ when the decibels arrive at 100dB, which is similar to a train passing by an iron railway bridge, whereas the singing of Karaoke inside a confined room would reach at 110dB, causing reflective
+                    movement of muscles and the intention to sing and dance.
+                </p>
+                <p class="lead" style="text-align:left">Beyond that, noises are no more fussy issues but deadly threats to our health. Severe damages would be made to ears when noises fly above 120dB to 130dB, equivalent to the sound of a working combustion engine of airplane. Hearing lost
+                    and eardrum rupture could be caused by noises louder than 140dB.
+                </p>
+                <p class="lead" style="text-align:left">Quite alarming, isn’t it? In an effort to better prevent and control the adverse influences of the unwanted sounds, China has developed a series of measurements regarding the categorization of different urban spaces and standards of environmental
+                    noises in each zone at different time respectively.
+                </p>
+                <p class="lead" style="text-align:left">The dozens of annual reports released by the environment protection ministry offered a glimpse of the noise environment of China from various perspectives – some are not so surprising, while the others are rather jaw-dropping findings.
+                </p>
+            </div>
+            <div class="col-md-1 col-xs-0">
+            </div>
+        </div>
+        <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
