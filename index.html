@@ -63,8 +63,8 @@
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>More Than a Nuisance</h1>
-            <h3>Study and Data Visulization of China's Urban Noise Pollution</h3>
+            <h1 style="color:white">More Than a Nuisance</h1>
+            <h3 style="color:white">the Study and Data Visualization of Urban Noise Pollution in China</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
         </div>
@@ -90,6 +90,7 @@
                 <div class="col-md-1">
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-1">
                 </div>
@@ -122,17 +123,29 @@
                 </div>
             </div>
             <br>
+
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 style="color:#2f4554"><i>Introduction to Noise 101</i></h2>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-10">
+                    <p class="lead" style="text-align:left">So, to what extent should an “unwanted sound” be considered as “noise”? Have a look at our interactive body map and embark a journey through the soundscape in your mind.
+                    </p>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+
+            <div class="row">
+
                 <div class="col-md-3">
                 </div>
                 <div class="col-md-4">
                     <!-- BodyMap -->
-                    </br>
-                    </br>
-                    </br>
                     <div ng-app="dBexampleApp">
 
                         <div ng-controller="dBcontroller">
@@ -165,8 +178,8 @@
                                 <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
                                 <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" style="width:225px" list="tickmarks">
                                 <datalist id="tickmarks">
-                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
-                                </datalist>
+                                                            <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                                    </datalist>
                             </div>
                         </div>
                     </div>
@@ -187,9 +200,8 @@
                     <!-- Angualr js script for body map -->
                     <!-- BodyMap -->
                 </div>
+
                 <div class="col-md-4">
-                    <p class="lead" style="text-align:left">So, to what extent should an “unwanted sound” be considered as “noise”? Have a look at our interactive body map and embark a journey through the soundscape in your mind.
-                    </p>
                     <p class="lead" style="text-align:left">Imagine walking in the quiet suburb areas at midnight – no traffic, no residence, no murmuring of insects with no names – that’s about 30 decibels (dB), also the WHO recommended level of sounds to have a good night of sleep.
                     </p>
                     <p class="lead" style="text-align:left">When it fluctuates between 40 and 50dB, which are still considered to be a “comfortable” sound level, it is equivalent to the sound of typing or printing in a quite office where no one talks, yet considered to be disturbing for medical,
@@ -201,6 +213,8 @@
                 <div class="col-md-1">
                 </div>
             </div>
+
+
             <div class: "row">
                 <div class="col-md-1">
                 </div>
@@ -226,8 +240,7 @@
                 <div class="col-md-1">
                 </div>
             </div>
-        </div>
-        <!-- /.row -->
+            <!-- /.row -->
         </div>
         <!-- /.container -->
     </section>
@@ -247,7 +260,11 @@
                 </div>
                 <div class="col-md-10">
                     <p class="lead">Urban spaces are well defined and categorized into five general zones with different requirements of environmental noises.
-
+                    </p>
+                    <p class="lead" style="text-align:left">The Zone 0 of sanatoriums and villas, where people resided there to recover from illnesses, has the strictest noise requirement of less than 50dB by day and 40dB at night, followed by neighborhoods of hospitals, schools and residence
+                        areas, or the Zone 1, requiring the noise decibels to be lower than 55 by day and 45 at night.
+                    </p>
+                    <p class="lead" style="text-align:left">Zone 2 is the mixed areas of commercial buildings and residential community, 60dB by day and 50 by night. After that, the other zones would be clear of residential community, with only industrial and transport areas included.
                     </p>
                 </div>
                 <div class="col-md-1">
@@ -419,11 +436,6 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-10">
-                    <p class="lead" style="text-align:left">The Zone 0 of sanatoriums and villas, where people resided there to recover from illnesses, has the strictest noise requirement of less than 50dB by day and 40dB at night, followed by neighborhoods of hospitals, schools and residence
-                        areas, or the Zone 1, requiring the noise decibels to be lower than 55 by day and 45 at night.
-                    </p>
-                    <p class="lead" style="text-align:left">Zone 2 is the mixed areas of commercial buildings and residential community, 60dB by day and 50 by night. After that, the other zones would be clear of residential community, with only industrial and transport areas included.
-                    </p>
                     <p class="lead" style="text-align:left">The noise environment of Zone 3, the industrial areas, is limited to 65dB by day and 55dB at night, whereas Zone 4, including Zone 4a as roadside areas and Zone 4b as areas near railways, is required to keep the noises down to 70dB
                         by the day and 55dB (4a) or 60dB (4b) at night.
                     </p>
@@ -1029,7 +1041,7 @@
             <!-- Other videos -->
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h3 style="color:#2f4554"><i>Other Cities' Noise
+                    <h3 style="color:#2f4554"><i>Other City Profiles of Soundscapes
                             </i></h3>
                     <hr class="small">
                 </div>
@@ -1156,7 +1168,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 style="color:#2f4554"><i>Ending</i></h2>
+                    <h2 style="color:#2f4554"><i>Coda</i></h2>
                 </div>
                 <hr class="small">
             </div>
