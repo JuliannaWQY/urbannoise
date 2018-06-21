@@ -30,7 +30,15 @@
     <script src="bodymap/angular.js"></script>
     <!--<script src="lodash.js"></script>
     <script src="swiper.jquery.min.js"></script>-->
-    <style type="text/css">
+    <style type="text/css"> 
+        body {
+            font-size: 100%; /* Makes the font go to 16 pixels */
+        }
+
+        h1 {
+            font: 1.125em arial; /* 18px :  16px = 1.2em*/
+        }
+
         .lead{
             text-align: justify;
         }
@@ -57,13 +65,18 @@
             }
         }
 
+        @media only screen and (max-width: 350px) {
+            #info1{
+                width:100%;
+            }
+        }
+
         #info1 {
-            width:350px;
-            height: 500px;
+            width:90%
         }
 
         #info2 {
-            width:100%;
+            width:90%;
         }
 
         #info3 {
@@ -71,13 +84,13 @@
         }
 
         #chart3{
-            width: 650px;
-            height:675px;
+            width: 100%;
+            min-height:540px;
         }
 
         #map{
-            width: 700px;
-            height:550px;
+            width: 100%;
+            min-height:540px;
         }
 
         #bodyDiv, #info1, #info3, #info2, .icon-center{
@@ -88,6 +101,19 @@
 </head>
 
 <body style="background-color:rgba(130,130,130,0.2);">
+    <script type="text/javascript">
+        //windown resize listener for resizing echarts
+        window.onresize = function(){
+            if(myChart != null && myChart != undefined){
+                myChart.resize();
+            }
+
+            if (myMap != null && myMap != undefined){
+                myMap.resize();
+            }
+        }
+    </script>
+
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">

@@ -1,4 +1,4 @@
-var myChart = echarts.init(document.getElementById('map'));
+var myMap = echarts.init(document.getElementById('map'));
                             var geoCoordMap = {
                                 'Ningbo': [29.86, 121.54],
                                 'Qingdao': [120.33, 36.07],
@@ -330,4 +330,4 @@ var myChart = echarts.init(document.getElementById('map'));
                                     }]
                                 }]
                             }
-                            myChart.setOption(option)
+                            myMap.setOption(option)
