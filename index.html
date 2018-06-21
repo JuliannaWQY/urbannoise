@@ -39,7 +39,10 @@
             height:225px;width:30px;
             -webkit-appearance: slider-vertical;
             orient:vertical;
-            margin-top: 50px;
+            
+        }
+        #dBValueGroup{
+            margin-top: 100px;
         }
 
         @media only screen and (max-width: 992px) {
@@ -48,6 +51,8 @@
                 width:225px;
                 height:30px;
                 -webkit-appearance: slider-horizontal;
+            }
+            #dBValueGroup{
                 margin-top: 0;
             }
         }
@@ -57,12 +62,25 @@
             height: 500px;
         }
 
-        #info3 {
-            width:600px;
-            height: 550px;
+        #info2 {
+            width:100%;
         }
 
-        #bodyDiv, #info1, #info3{
+        #info3 {
+            width:90%;
+        }
+
+        #chart3{
+            width: 650px;
+            height:675px;
+        }
+
+        #map{
+            width: 700px;
+            height:550px;
+        }
+
+        #bodyDiv, #info1, #info3, #info2{
             display:block;
             margin:auto;
         }
@@ -207,7 +225,7 @@
                                     <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12" id="dBValueGroup">
                                 <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
                                 <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" list="tickmarks">
                                 <datalist id="tickmarks">
@@ -309,12 +327,10 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-4">
-                    <img src="img/info2.png" style="width:400px;height:600px;margin-right:50%">
+                    <img src="img/info2.png" id="info2">
                 </div>
                 <div class="col-md-6">
-                    <div id="chart3" style="width: 650px;height:675px;">
-                        <!--chart3 -->
-                    </div>
+                    <div id="chart3" id="chart3"></div>
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -343,344 +359,10 @@
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-7">
-                    <div id="map" style="width: 700px;height:550px;">
+                    <div id="map">
                         <script src="js/echarts.js"></script>
                         <script src="js/china.js"></script>
-                        <script>
-                            var myChart = echarts.init(document.getElementById('map'));
-                            var geoCoordMap = {
-                                'Ningbo': [29.86, 121.54],
-                                'Qingdao': [120.33, 36.07],
-                                'Lhasa': [91.11, 29.97],
-                                'Shanghai': [121.48, 31.22],
-                                'Xiamen': [118.1, 24.46],
-                                'Fuzhou': [119.3, 26.08],
-                                'Nanning': [108.33, 22.84],
-                                'Guangzhou': [113.23, 23.16],
-                                'Taiyuan': [112.53, 37.87],
-                                'Kunming': [102.73, 25.04],
-                                'Shenzhen': [114.07, 22.62],
-                                'Haikou': [110.35, 20.02],
-                                'Dalian': [121.62, 38.92],
-                                'Shenyang': [123.38, 41.8],
-                                'Changchun': [125.35, 43.88],
-                                'Yinchuan': [106.27, 38.47],
-                                'Nanchang': [115.89, 28.68],
-                                'Xining': [101.74, 36.56],
-                                'Hohhot': [111.65, 40.82],
-                                'Chengdu': [104.06, 30.67],
-                                'XiAn': [108.95, 34.27],
-                                'Chongqing': [106.54, 29.59],
-                                'Nanjing': [118.78, 32.04],
-                                'Guiyang': [106.71, 26.57],
-                                'Beijing': [116.46, 39.92],
-                                'Urumqi': [87.68, 43.77],
-                                'Hangzhou': [120.19, 30.26],
-                                'Jinan': [117, 36.65],
-                                'Lanzhou': [103.73, 36.03],
-                                'Tianjin': [117.2, 39.13],
-                                'Zhengzhou': [113.65, 34.76],
-                                'Harbin': [126.63, 45.75],
-                                'Shijiazhuang': [114.48, 38.03],
-                                'Changsha': [113, 28.21],
-                                'Hefei': [117.27, 31.86],
-                                'Wuhan': [114.31, 30.52],
-                            };
-
-                            var convertData = function(data) {
-                                var res = [];
-                                for (var i = 0; i < data.length; i++) {
-                                    var geoCoord = geoCoordMap[data[i].name];
-                                    if (geoCoord) {
-                                        res.push({
-                                            name: data[i].name,
-                                            value: geoCoord.concat(data[i].value)
-                                        });
-                                    }
-                                }
-                                return res;
-                            };
-
-                            option = {
-                                baseOption: {
-                                    timeline: {
-                                        data: ['Daytime', 'Night'],
-                                        axisType: 'category',
-                                        tooltip: {
-                                            show: false
-                                        },
-                                        playInterval: 10000,
-                                        checkpointStyle: {
-                                            color: '#bbb',
-                                            borderColor: '#777',
-                                            borderWidth: 2
-                                        },
-                                    },
-                                    title: {
-                                        text: 'Compliance Rate of Environment Noise in Major Cities of China, 2016',
-                                        textStyle: {
-                                            color: '#2f4554'
-                                        },
-                                        subtextStyle: {
-                                            fontSize: 30,
-                                            color: '#2f4554'
-                                        },
-                                        sublink: 'http://www.pm25.in',
-                                        x: 'center',
-                                    },
-                                    tooltip: {
-                                        trigger: 'item',
-                                        formatter: function(params) {
-                                            return params.name + ' : ' + params.value[2];
-                                        }
-                                    },
-                                    visualMap: {
-                                        min: 100,
-                                        max: 0,
-                                        splitNumber: 4,
-                                        seriesIndex: 0,
-                                        //:series.data,
-                                        textStyle: {
-                                            color: '#2f4554'
-                                        },
-                                        showLabel: true,
-                                        text: ['Compliance Rate (%)'],
-                                        hoverlink: true,
-                                        inRange: {
-                                            color: ['#d94e5d', '#eac736', '#50a3ba']
-                                        },
-                                    },
-                                    geo: {
-                                        map: 'china',
-                                        label: {
-                                            emphasis: {
-                                                show: false
-                                            }
-                                        },
-                                        itemStyle: {
-                                            normal: {
-                                                color: '#828282',
-                                                borderColor: '#111'
-                                            },
-                                            emphasis: {
-                                                areaColor: '#BDC0BA'
-                                            }
-                                        }
-                                    },
-                                },
-
-                                options: [{
-                                    title: {
-                                        subtext: 'Daytime'
-                                    },
-                                    series: [{
-                                        name: 'Daytime',
-                                        type: 'scatter',
-                                        coordinateSystem: 'geo',
-                                        symbol: 'roundRect',
-                                        symbolSize: 20,
-                                        data: convertData([{
-                                            name: 'Beijing',
-                                            value: 81.3
-                                        }, {
-                                            name: 'Tianjin',
-                                            value: 86.3
-                                        }, {
-                                            name: 'Shijiazhuang',
-                                            value: 89.6
-                                        }, {
-                                            name: 'Taiyuan',
-                                            value: 94.4
-                                        }, {
-                                            name: 'Hohhot',
-                                            value: 100
-                                        }, {
-                                            name: 'Shenyang',
-                                            value: 92.9
-                                        }, {
-                                            name: 'Changchun',
-                                            value: 90.6
-                                        }, {
-                                            name: 'Harbin',
-                                            value: 70.6
-                                        }, {
-                                            name: 'Shanghai',
-                                            value: 93.0
-                                        }, {
-                                            name: 'Nanjing',
-                                            value: 96.9
-                                        }, {
-                                            name: 'Hangzhou',
-                                            value: 84.1
-                                        }, {
-                                            name: 'Hefei',
-                                            value: 93.1
-                                        }, {
-                                            name: 'Fuzhou',
-                                            value: 98.8
-                                        }, {
-                                            name: 'Nanchang',
-                                            value: 95
-                                        }, {
-                                            name: 'Jinan',
-                                            value: 80.6
-                                        }, {
-                                            name: 'Zhengzhou',
-                                            value: 50.0
-                                        }, {
-                                            name: 'Wuhan',
-                                            value: 77.1
-                                        }, {
-                                            name: 'Changsha',
-                                            value: 78.3
-                                        }, {
-                                            name: 'Guangzhou',
-                                            value: 63.6
-                                        }, {
-                                            name: 'Nanning',
-                                            value: 89.3
-                                        }, {
-                                            name: 'Haikou',
-                                            value: 100
-                                        }, {
-                                            name: 'Chongqing',
-                                            value: 84.9
-                                        }, {
-                                            name: 'Chengdu',
-                                            value: 79.3
-                                        }, {
-                                            name: 'Guiyang',
-                                            value: 100
-                                        }, {
-                                            name: 'Kunming',
-                                            value: 100
-                                        }, {
-                                            name: 'Lhasa',
-                                            value: 100
-                                        }, {
-                                            name: 'XiAn',
-                                            value: 62.5
-                                        }, {
-                                            name: 'Lanzhou',
-                                            value: 71.4
-                                        }, {
-                                            name: 'Xining',
-                                            value: 60
-                                        }, {
-                                            name: 'Yinchuan',
-                                            value: 100
-                                        }, {
-                                            name: 'Urumqi',
-                                            value: 93.3
-                                        }])
-                                    }]
-                                }, {
-                                    title: {
-                                        subtext: 'Night'
-                                    },
-                                    series: [{
-                                        name: 'Night',
-                                        type: 'scatter',
-                                        coordinateSystem: 'geo',
-                                        data: convertData([{
-                                            name: 'Beijing',
-                                            value: 43.8
-                                        }, {
-                                            name: 'Tianjin',
-                                            value: 57.5
-                                        }, {
-                                            name: 'Shijiazhuang',
-                                            value: 35.4
-                                        }, {
-                                            name: 'Taiyuan',
-                                            value: 72.2
-                                        }, {
-                                            name: 'Hohhot',
-                                            value: 45.0
-                                        }, {
-                                            name: 'Shenyang',
-                                            value: 85.7
-                                        }, {
-                                            name: 'Changchun',
-                                            value: 39.1
-                                        }, {
-                                            name: 'Harbin',
-                                            value: 50
-                                        }, {
-                                            name: 'Shanghai',
-                                            value: 68.8
-                                        }, {
-                                            name: 'Nanjing',
-                                            value: 87.5
-                                        }, {
-                                            name: 'Hangzhou',
-                                            value: 58
-                                        }, {
-                                            name: 'Hefei',
-                                            value: 75.9
-                                        }, {
-                                            name: 'Fuzhou',
-                                            value: 70
-                                        }, {
-                                            name: 'Nanchang',
-                                            value: 68.8
-                                        }, {
-                                            name: 'Jinan',
-                                            value: 50
-                                        }, {
-                                            name: 'Zhengzhou',
-                                            value: 31.3
-                                        }, {
-                                            name: 'Wuhan',
-                                            value: 43.8
-                                        }, {
-                                            name: 'Changsha',
-                                            value: 41.7
-                                        }, {
-                                            name: 'Guangzhou',
-                                            value: 56.8
-                                        }, {
-                                            name: 'Nanning',
-                                            value: 46.4
-                                        }, {
-                                            name: 'Haikou',
-                                            value: 62.5
-                                        }, {
-                                            name: 'Chongqing',
-                                            value: 57
-                                        }, {
-                                            name: 'Chengdu',
-                                            value: 53.7
-                                        }, {
-                                            name: 'Guiyang',
-                                            value: 31.3
-                                        }, {
-                                            name: 'Kunming',
-                                            value: 71.9
-                                        }, {
-                                            name: 'Lhasa',
-                                            value: 87.5
-                                        }, {
-                                            name: 'XiAn',
-                                            value: 31.3
-                                        }, {
-                                            name: 'Lanzhou',
-                                            value: 28.6
-                                        }, {
-                                            name: 'Xining',
-                                            value: 35
-                                        }, {
-                                            name: 'Yinchuan',
-                                            value: 100
-                                        }, {
-                                            name: 'Urumqi',
-                                            value: 56.7
-                                        }])
-                                    }]
-                                }]
-                            }
-                            myChart.setOption(option)
-                        </script>
+                        <script src="createMap.js"></script>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -751,7 +433,7 @@
                     <p class="lead">WU Fei, a 23-year-old young historian studying in Hong Kong, found herself helpless when dealing with the noises from a construction site next to her home in Dandong City.
                     </p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <img src="img/info3.jpg" id="info3">
                 </div>
                 <div class="col-md-1">
@@ -933,33 +615,33 @@
 
             <!-- Tongcheng -->
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-xs-1">
                 </div>
-                <div class="col-md-6 col-xs-8">
+                <div class="col-md-6 col-xs-10">
                     <p class="lead">“It is extremely annoying,” the 22-year-old student said. “All the squares nearby are taken by female retirees who live here. They played pop songs at really high volumes which even gives me headaches.”</p>
                     <p class="lead">Similar with Wu’s case in Dandong, Zhang’s attempt to negotiate with the residential property management office was in vain.
                     </p>
                 </div>
-                <div class="col-md-4 col-xs-6">
-                    <div class="col-md-4 col-xs-6">
+                
+                <div class="col-md-4 col-xs-10">
+                    <div class="service-item">
                         <div class="row">
-                            <div class="service-item">
-                                <div class="col-xs-4">
-                                    <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
-                                    <h4>
-                                        <strong>Tongcheng</strong>
-                                    </h4>
-                                </div>
-                                <div class="col-xs-8">
-                                    <video width="240" height="136" controls>
-                                         <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
+                            <div class="col-sm-4">
+                                <div id="tongchengMap" style="width:99.9px;height:99.9px;"></div>
+                                <h4>
+                                    <strong>Tongcheng</strong>
+                                </h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <video width="240" height="136" controls>
+                                     <source src="videos/tongcheng.mp4#t=0.8" type="video/mp4">
                                  </video>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-1">
+                
+                <div class="col-xs-1">
                 </div>
             </div>
             <!-- text -->
@@ -1242,30 +924,7 @@
             // Enable map zooming with mouse scroll when the user clicks the map
         $('.map').on('click', onMapClickHandler);
     </script>
-    <!--
-    <script>
-        var chart2 = document.getElementById('chart2')
-        var chart1 = document.getElementById('chart1')
-        chart2.style.display = 'none'
-        chart1.style.display = 'block'
-
-        function myFunction1() {
-            var x = document.getElementById('chart1');
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-                chart2.style.display = 'none'
-            }
-        }
-
-        function myFunction2() {
-            var x = document.getElementById('chart2');
-            if (x.style.display === 'none') {
-                x.style.display = 'block';
-                chart1.style.display = 'none';
-            }
-        }
-    </script>
-    -->
+   
     <!-- json map of Cities -->
     <script src="citiesMap.js"></script>
     <!-- json map of Cities -->
