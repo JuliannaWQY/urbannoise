@@ -39,15 +39,32 @@
             height:225px;width:30px;
             -webkit-appearance: slider-vertical;
             orient:vertical;
+            margin-top: 50px;
         }
 
-        @media only screen and (max-width: 500px) {
+        @media only screen and (max-width: 992px) {
             #dBValue {
                 orient:horizontal;
                 width:225px;
                 height:30px;
                 -webkit-appearance: slider-horizontal;
+                margin-top: 0;
             }
+        }
+
+        #info1 {
+            width:350px;
+            height: 500px;
+        }
+
+        #info3 {
+            width:600px;
+            height: 550px;
+        }
+
+        #bodyDiv, #info1, #info3{
+            display:block;
+            margin:auto;
         }
     </style>
 </head>
@@ -122,7 +139,7 @@
                     </p>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <img src="img/info1.png" style="width:350px;height:550px">
+                    <img src="img/info1.png" id="info1">
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -161,10 +178,10 @@
                 </div>
                 <div class="col-md-5">
                     <!-- BodyMap -->
-                    <div ng-app="dBexampleApp">
+                    <div ng-app="dBexampleApp" id="bodyDiv">
 
                         <div ng-controller="dBcontroller">
-                            <div class="col-md-9">
+                            <div class="col-md-9 col-sm-12">
                                 <div class="row">
                                     <img src="bodymap/man1.png" style="width:225px;height:500px; display:block" id="man1" ng-if="getAngdB() >= 0 && getAngdB() < 70">
                                     <!--usemap="#myMap"-->
@@ -190,19 +207,12 @@
                                     <b style="font-size:28px; display:inline-block; padding-bottom:30px; padding-top:30px;" ng-if="getAngdB() >140 && getAngdB() < 181">Eardrum Rupture</b>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="row">
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
-                                    <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" list="tickmarks">
-                                    <datalist id="tickmarks">
-                                        <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
-                                    </datalist>
-                                </div>
+                            <div class="col-md-3 col-sm-12">
+                                <label for="dBValue" style="font-size:30px">{{AngdB}}dB</label>
+                                <input type="range" ng-change="dBchange()" min="0" max="180" step="1" id="dBValue" value="{{getAngdB()}}" ng-model="AngdB" list="tickmarks">
+                                <datalist id="tickmarks">
+                                    <option>0</option><option>10</option><option>20</option><option>30</option><option>40</option><option>50</option><option>60</option><option>70</option><option>80</option><option>90</option><option>100</option><option>110</option><option>120</option><option>130</option><option>140</option><option>150</option><option>160</option><option>170</option><option>180</option>
+                                    </datalist>                        
                             </div>
                         </div>
                     </div>
@@ -742,7 +752,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img src="img/info3.jpg" style="width:600px;height:550px">
+                    <img src="img/info3.jpg" id="info3">
                 </div>
                 <div class="col-md-1">
                 </div>
@@ -1232,6 +1242,7 @@
             // Enable map zooming with mouse scroll when the user clicks the map
         $('.map').on('click', onMapClickHandler);
     </script>
+    <!--
     <script>
         var chart2 = document.getElementById('chart2')
         var chart1 = document.getElementById('chart1')
@@ -1254,7 +1265,7 @@
             }
         }
     </script>
-
+    -->
     <!-- json map of Cities -->
     <script src="citiesMap.js"></script>
     <!-- json map of Cities -->
@@ -1266,7 +1277,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <script src="js/1.js"></script>
+    <!--<script src="js/1.js"></script>-->
 </body>
 
 </html>
